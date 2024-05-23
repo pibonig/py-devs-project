@@ -8,5 +8,6 @@ class Phone(Field):
 
     @value.setter
     def value(self, value: str):
-        # TODO: validate input value here
-        pass
+        if not value.isdigit() or len(value) != 10:
+            raise ValueError("The phone number must consist of 10 digits")
+        self.__value = value
