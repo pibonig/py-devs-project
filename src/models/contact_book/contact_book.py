@@ -32,6 +32,8 @@ class ContactBook(UserDict[Contact]):
                     row =[contact.name, birthday_date.strftime("%d.%m.%Y")]
                     result.append(row)
         result.sort(key=lambda x: datetime.strptime(x[1], "%d.%m.%Y"))
+        if len(result) == 0:
+            return None
         return tabulate(result, headers, tablefmt="grid")
 
     def __str__(self):
@@ -46,6 +48,8 @@ class ContactBook(UserDict[Contact]):
                 contact.birthday if contact.birthday else ""
             ]
             table.append(row)
+        if len(table) == 0:
+            return None
         return tabulate(table, headers, tablefmt="grid")
 
     def __repr__(self):
