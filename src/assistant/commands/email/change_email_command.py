@@ -4,4 +4,11 @@ from src.models.contact_book.contact_book import ContactBook
 
 @input_error
 def change_email_command(args: list, contact_book: ContactBook):
-    pass
+    name, email = args
+    record = contact_book.get_contact(name)
+    if record is None:
+        return 'Contact does not exist'
+    else:
+        record.set_email(email)
+        return 'Email has been changed in the contact'
+
