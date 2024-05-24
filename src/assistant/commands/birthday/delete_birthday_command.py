@@ -14,4 +14,4 @@ def delete_birthday_command(args: list, contact_book: ContactBook) -> BaseRespon
         raise KeyError
     else:
         contact.delete_birthday()
-        return StringResponse('Birthday has been deleted in the contact')
+        return StringResponse("Birthday has been deleted in the contact")

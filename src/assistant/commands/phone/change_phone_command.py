@@ -17,4 +17,4 @@ def change_phone_command(args: list, contact_book: ContactBook) -> BaseResponse:
         old_phone = Phone(old_phone)
         new_phone = Phone(new_phone)
         contact.edit_phone(old_phone, new_phone)
-        return StringResponse('Phone has been changed in the contact')
+        return StringResponse("Phone has been changed in the contact")

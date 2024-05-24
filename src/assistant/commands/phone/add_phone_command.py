@@ -16,4 +16,4 @@ def add_phone_command(args: list, contact_book: ContactBook) -> BaseResponse:
     else:
         phone = Phone(phone)
         contact.add_phone(phone)
-        return StringResponse('Phone has been added to the contact')
+        return StringResponse("Phone has been added to the contact")

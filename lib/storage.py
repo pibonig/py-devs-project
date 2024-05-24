@@ -1,5 +1,7 @@
 import pickle
+
 from src.models.contact_book.contact_book import ContactBook
+
 
 class Storage:
     @classmethod

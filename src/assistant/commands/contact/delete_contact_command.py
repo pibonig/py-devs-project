@@ -12,6 +12,6 @@ def delete_contact_command(args: list, contact_book: ContactBook) -> BaseRespons
     contact = contact_book.get_contact(name)
     if contact:
         contact_book.delete_contact(name)
-        return StringResponse('Contact has been deleted')
+        return StringResponse("Contact has been deleted")
     else:
         raise KeyError

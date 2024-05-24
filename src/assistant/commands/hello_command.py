@@ -5,4 +5,4 @@ from src.response.string_response import StringResponse
 
 @input_error
 def hello_command() -> BaseResponse:
-    return StringResponse('Hello! How can I help you?')
+    return StringResponse("Hello! How can I help you?")

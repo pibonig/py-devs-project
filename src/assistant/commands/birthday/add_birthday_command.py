@@ -16,4 +16,4 @@ def add_birthday_command(args: list, contact_book: ContactBook) -> BaseResponse:
     else:
         birthday = Birthday(date)
         contact.set_birthday(birthday)
-        return StringResponse('Birthday has been added to the contact')
+        return StringResponse("Birthday has been added to the contact")

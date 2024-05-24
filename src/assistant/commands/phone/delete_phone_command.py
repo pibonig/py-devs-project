@@ -16,4 +16,4 @@ def delete_phone_command(args: list, contact_book: ContactBook) -> BaseResponse:
     else:
         phone = Phone(phone)
         contact.delete_phone(phone)
-        return StringResponse('Phone has been delete in the contact')
+        return StringResponse("Phone has been delete in the contact")

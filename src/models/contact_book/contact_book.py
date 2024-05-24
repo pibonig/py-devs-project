@@ -1,7 +1,8 @@
 from collections import UserDict
 from datetime import datetime, timedelta
-from src.response.table_response import TableResponse
+
 from src.models.contact_book.contact import Contact
+from src.response.table_response import TableResponse
 
 
 class ContactBook(UserDict[Contact]):
@@ -30,7 +31,7 @@ class ContactBook(UserDict[Contact]):
                 if birthday_date < current_date:
                     birthday_date = birthday_date.replace(year=current_year + 1)
                 if current_date <= birthday_date <= current_timedelta:
-                    row =[contact.name, birthday_date.strftime("%d.%m.%Y")]
+                    row = [contact.name, birthday_date.strftime("%d.%m.%Y")]
                     result.append(row)
         result.sort(key=lambda x: datetime.strptime(x[1], "%d.%m.%Y"))
         if len(result) == 0:
@@ -52,5 +53,3 @@ class ContactBook(UserDict[Contact]):
         if len(table) == 0:
             return None
         return TableResponse(headers, table)
-
- 
