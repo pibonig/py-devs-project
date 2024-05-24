@@ -1,3 +1,5 @@
+from datetime import datetime
+from src.response.string_response import StringResponse
 from src.models.field import Field
 
 
@@ -8,5 +10,11 @@ class Birthday(Field):
 
     @value.setter
     def value(self, value: str):
-        # TODO: validate input value here
-        pass
+        try:
+            self.__value = datetime.strptime(value, '%d.%m.%Y')
+        except ValueError:
+            raise ValueError("Invalid date format. Use DD.MM.YYYY")
+        
+    def __repr__(self):
+        return StringResponse(self.__value.strftime("%d.%m.%Y"))
+

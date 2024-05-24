@@ -5,17 +5,16 @@ from src.response.string_response import StringResponse
 
 
 @input_error
-def change_note_command(args: list, notebook: NoteBook) -> BaseResponse:
+def add_tag_command(args: list, notebook: NoteBook) -> BaseResponse:
     if len(args) < 2:
-        raise ValueError('Invalid arguments. Example: edit_note <note_title> <content>')
+        raise ValueError("Invalid arguments. Example: add_tag <note_title> <tag>")
 
-    note_title = args[0]
+    note_title = int(args[0])
+    tag = args[1]
 
-    new_content = ''.join(args[1:])
     note = notebook.get_note(note_title)
-
     if note:
-        note.change(new_content)
-        return StringResponse(f"Note '{note_title}' updated to: {new_content}")
+        note.add_tag(tag)
+        return StringResponse(f"Tag '{tag}' added to the note '{note_title}'.")
     else:
         raise KeyError(f"Note with title '{note_title}' not found")

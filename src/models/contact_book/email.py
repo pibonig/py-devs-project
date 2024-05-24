@@ -1,5 +1,5 @@
+import re
 from src.models.field import Field
-
 
 class Email(Field):
     @property
@@ -8,5 +8,10 @@ class Email(Field):
 
     @value.setter
     def value(self, value: str):
-        # TODO: validate input value here
-        pass
+        pattern = r"(^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$)"
+        match = re.search(pattern, value)
+        if match:
+            self.__value = value
+        else:
+            raise ValueError("Invalid email format. Try example@example.example")
+        
