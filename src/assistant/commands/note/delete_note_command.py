@@ -8,7 +8,7 @@ from src.response.string_response import StringResponse
 def delete_note_command(args: list, notebook: NoteBook) -> BaseResponse:
     if len(args) != 1:
         raise ValueError("Invalid arguments. Example: delete_note <note_title>")
-   
+
     note_title = args[0]
     deleted_note = notebook.delete_note(note_title)
 
