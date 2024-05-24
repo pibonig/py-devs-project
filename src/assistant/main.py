@@ -13,7 +13,7 @@ from src.assistant.commands.birthday.add_birthday_command import add_birthday_co
 from src.assistant.commands.birthday.change_birthday_command import change_birthday_command
 from src.assistant.commands.birthday.delete_birthday_command import delete_birthday_command
 from src.assistant.commands.close_command import close_command
-from src.assistant.commands.contact.add_contact_command import add_contact_command
+from src.assistant.commands.contact.add_contact_command import AddContactCommand
 from src.assistant.commands.contact.delete_contact_command import delete_contact_command
 from src.assistant.commands.contact.get_all_contacts_command import get_all_contacts_command
 from src.assistant.commands.contact.get_contact_command import get_contact_command
@@ -50,7 +50,7 @@ commands = {
     "delete_birthday": delete_birthday_command,
     "get_all_birthdays": get_all_birthdays_command,
     "get_birthday": get_birthday_command,
-    "add_contact": add_contact_command,
+    AddContactCommand.name: AddContactCommand,
     "delete_contact": delete_contact_command,
     "get_all_contacts": get_all_contacts_command,
     "get_contact": get_contact_command,
@@ -99,7 +99,12 @@ def start():
             continue
 
         if command in commands:
-            unwrapped_function = inspect.unwrap(commands[command])
+            if hasattr(commands[command], "execute"):
+                execute_method = commands[command]().execute
+            else:
+                execute_method = commands[command]
+
+            unwrapped_function = inspect.unwrap(execute_method)
             sig = inspect.signature(unwrapped_function)
 
             params = list()
@@ -111,7 +116,7 @@ def start():
                 elif param.annotation == Notebook:
                     params.append(notebook)
 
-            response = commands[command](*params)
+            response = execute_method(*params)
 
             if isinstance(response, TableResponse) or isinstance(response, str):
                 print(response)
@@ -119,6 +124,5 @@ def start():
                 Storage.save(ContactBook.pickle_file, contact_book)
                 print("Good bye!")
                 sys.exit(1)
-
         else:
             print("Invalid command.")
