@@ -8,7 +8,7 @@ from src.assistant.commands.contact import add_contact_command, delete_contact_c
     get_contact_command
 from src.assistant.commands.email import add_email_command, change_email_command, delete_email_command
 from src.assistant.commands.note import add_note_command, change_note_command, delete_note_command, \
-    get_all_notes_command, get_note_command
+    get_all_notes_command, get_note_command,add_tag_command,delete_tag_command,get_tag_command,sort_by_tags_command
 from src.assistant.commands.phone import add_phone_command, change_phone_command, delete_phone_command
 from src.models.contact_book.contact_book import ContactBook
 
@@ -39,6 +39,10 @@ commands = {
     'add_phone': add_phone_command,
     'change_phone': change_phone_command,
     'delete_phone': delete_phone_command,
+    'add_tag':add_tag_command,
+    'delete_tag':delete_tag_command,
+    'get_tag':get_tag_command,
+    'sort_by_tags':sort_by_tags_command
 }
 
 
