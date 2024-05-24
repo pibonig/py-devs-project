@@ -7,11 +7,11 @@ from src.response.string_response import StringResponse
 
 @input_error
 def add_note_command(args: list, notebook: NoteBook) -> BaseResponse:
-    if len (args)<2:
+    if len(args) < 2:
         raise ValueError("No content provided for the note. Example: add_note <title> <content>")
 
-    note_title=args[0]
+    note_title = args[0]
     note_content = ''.join(args[1:])
-    note = Note(title=note_title,content=note_content)
+    note = Note(title=note_title, content=note_content)
     notebook.add_note(note)
     return StringResponse("Note added")

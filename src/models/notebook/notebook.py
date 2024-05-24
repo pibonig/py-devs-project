@@ -22,10 +22,10 @@ class NoteBook:
                 self.notes.remove(note)
                 return note
         return None
-    
+
     def list_notes(self) -> list[Note]:
         return self.notes
-    
+
     def __str__(self):
         note_titles = [note.title for note in self.notes]
         return ", ".join(note_titles)
