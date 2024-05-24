@@ -1,12 +1,16 @@
 from src.decorators import input_error
 from src.models.contact_book.contact_book import ContactBook
+from starlette.responses import StringResponse
+
 
 
 @input_error
 def get_birthdays(args: list, contact_book: ContactBook):
+    if len(args) < 1:
+        raise ValueError
     days = args
     if not contact_book.data:
-        return "Address book is empty."
+        return StringResponse("Address book is empty.")
     else:
         result = ''
         book_birthday = contact_book.get_upcoming_birthdays(days)

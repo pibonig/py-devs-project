@@ -1,11 +1,15 @@
 from src.decorators import input_error
 from src.models.contact_book.contact_book import ContactBook
 from src.models.contact_book.birthday import Birthday
+from starlette.responses import StringResponse
+
 
 
 
 @input_error
 def change_birthday_command(args: list, contact_book: ContactBook):
+    if len(args) < 2:
+        raise ValueError
     name, date = args
     contact = contact_book.get_contact(name)
     if contact is None:
@@ -13,4 +17,4 @@ def change_birthday_command(args: list, contact_book: ContactBook):
     else:
         birthday = Birthday(date)
         contact.set_birthday(birthday)
-        return 'Birthday has been changed in the contact'
+        return StringResponse('Birthday has been changed in the contact')
