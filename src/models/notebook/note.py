@@ -24,4 +24,4 @@ class Note(Field):
     def __repr__(self):
         headers = ["Title", "Content", "Tags"]
         body = [[self.title, self.content, ', '.join(self.tags)]]
-        return str(TableResponse(headers=headers, body=body))
+        return TableResponse(headers=headers, body=body)

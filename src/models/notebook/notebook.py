@@ -30,10 +30,8 @@ class NoteBook:
     def list_notes(self) -> list[Note]:
         return self.notes
 
-    def __str__(self):
-        body = [[note.title, note.content, ', '.join(note.tags)] for note in self.notes] if self.notes else [["", "", ""]]
-        table = TableResponse(headers=["Title", "Content", "Tags"], body=body)
-        return str(table)
-
     def __repr__(self):
-        return self.__str__()
+        body = [[note.title, note.content, ', '.join(note.tags)] for note in self.notes] if self.notes else [["", "", ""]]
+        return TableResponse(headers=["Title", "Content", "Tags"], body=body)
+        
+
