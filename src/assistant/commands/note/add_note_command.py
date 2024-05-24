@@ -13,4 +13,4 @@ def add_note_command(args: list, notebook: NoteBook) -> BaseResponse:
     note_content = ''.join(args)
     note = Note(content=note_content)
     notebook.add_note(note)
-    return StringResponse("Note added") 
+    return StringResponse("Note added")

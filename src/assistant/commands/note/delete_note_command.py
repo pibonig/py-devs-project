@@ -14,6 +14,6 @@ def delete_note_command(args: list, notebook: NoteBook) -> BaseResponse:
         raise "Note index must be an integer."
     deleted_note = notebook.delete_note(note_index)
     if deleted_note:
-        return StringResponse(f"Note deleted: {deleted_note}") 
+        return StringResponse(f"Note deleted: {deleted_note}")
     else:
-        raise ValueError ("Note not found") 
+        raise ValueError("Note not found")

@@ -8,7 +8,7 @@ from src.response.string_response import StringResponse
 @input_error
 def change_note_command(args: list, notebook: NoteBook) -> BaseResponse:
     if len(args) < 2:
-        raise ValueError('Invalid arguments. Example: edit_note <content>') 
+        raise ValueError('Invalid arguments. Example: edit_note <content>')
     try:
         note_index = int(args[0])
     except ValueError:
@@ -19,6 +19,6 @@ def change_note_command(args: list, notebook: NoteBook) -> BaseResponse:
 
     if isinstance(note, Note):
         note.change(new_content)
-        return StringResponse(f"Note updated to: {new_content}") 
+        return StringResponse(f"Note updated to: {new_content}")
     else:
-        raise ValueError("Note not found") 
+        raise ValueError("Note not found")

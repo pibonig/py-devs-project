@@ -10,15 +10,15 @@ def get_note_command(args: list, notebook: NoteBook) -> BaseResponse:
         raise ValueError("No search query provided. Example search_note <query>")
     query = ''.join(args)
     result = notebook.get_note(query)
-   
+
     if isinstance(result, str):
-        raise ValueError (result)
+        raise ValueError(result)
     elif not result:
         raise ValueError('Notes not found')
-    elif isinstance(result,list):
-        if len(result)==1:
+    elif isinstance(result, list):
+        if len(result) == 1:
             return StringResponse(str(result[0]))
         else:
-            return StringResponse("\n".join(str(note) for note in result)) 
+            return StringResponse("\n".join(str(note) for note in result))
     else:
         return StringResponse(str(result))

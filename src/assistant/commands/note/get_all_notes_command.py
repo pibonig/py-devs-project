@@ -10,7 +10,7 @@ def get_all_notes_command(args: list, notebook: NoteBook) -> BaseResponse:
     if isinstance(notes, str):
         return notes
     elif not notes:
-        raise ValueError("No notes available") 
+        raise ValueError("No notes available")
     else:
-        notes_content="\n".join(str(note) for note in notes)
+        notes_content = "\n".join(str(note) for note in notes)
         return StringResponse(notes_content)
