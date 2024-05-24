@@ -8,7 +8,7 @@ class Email(Field):
 
     @value.setter
     def value(self, value: str):
-        pattern = r"^\w+@\w+\.\w+$"
+        pattern = r"(^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$)"
         match = re.search(pattern, value)
         if match:
             self.__value = value
