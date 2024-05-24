@@ -9,4 +9,4 @@ def get_contact_command(args: list, contact_book: ContactBook):
     if contact:
         return str(contact)
     else:
-        return "Contact not found."
+        raise KeyError('Contact does not exist')

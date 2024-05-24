@@ -6,7 +6,7 @@ from src.models.contact_book.contact_book import ContactBook
 def get_birthdays(args: list, contact_book: ContactBook):
     days = args
     if not contact_book.data:
-        return "Address book is empty."
+        raise KeyError("Address book is empty.")
     else:
         result = ''
         book_birthday = contact_book.get_upcoming_birthdays(days)

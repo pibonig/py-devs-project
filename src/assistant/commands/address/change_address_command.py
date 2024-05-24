@@ -7,7 +7,7 @@ def change_address_command(args: list, contact_book: ContactBook):
     name, adress = args
     contact = contact_book.get_contact(name)
     if contact  is None:
-        return 'Condact does not exist'
+        raise KeyError('Contact does not exist')
     else:
         contact.set_address(adress)
         return 'Adress has been changed to the contact'

@@ -9,4 +9,4 @@ def delete_contact_command(args: list, contact_book: ContactBook):
     if contact:
         contact_book.delete_contact(name)
     else:
-        return "Contact not found."
+        raise KeyError('Contact does not exist')

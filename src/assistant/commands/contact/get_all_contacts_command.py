@@ -5,7 +5,7 @@ from src.models.contact_book.contact_book import ContactBook
 @input_error
 def get_all_contacts_command(contact_book: ContactBook):
     if not contact_book.data:
-        return "Address book is empty."
+        raise KeyError("Address book is empty.")
     else:
         result = ""
         for name, contact in contact_book.data.items():
