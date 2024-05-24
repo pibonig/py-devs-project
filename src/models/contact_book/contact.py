@@ -28,8 +28,6 @@ class Contact:
         raise ValueError("Phone number not found")
 
     def edit_phone(self, old_phone: Phone,new_phone: Phone):
-        if not new_phone.isdigit() or len(new_phone) != 10:
-            raise ValueError("The phone number must consist of 10 digits")
         for phone in self.phones:
             if str(phone) == old_phone:
                 phone.value = new_phone
@@ -40,7 +38,7 @@ class Contact:
         return self.phones
 
     def set_email(self, email: Email):
-        self.email = Email(email)
+        self.email = email
 
     def get_email(self):
         return self.email
@@ -49,7 +47,7 @@ class Contact:
         self.email =None
 
     def set_address(self, address: Address):
-        self.address = Address(address)
+        self.address = address
 
     def get_address(self):
         return self.address
@@ -58,7 +56,7 @@ class Contact:
         self.address = None
 
     def set_birthday(self, birthday: Birthday):
-        self.birthday = Birthday(birthday)
+        self.birthday = birthday
 
     def get_birthday(self):
         return self.birthday
