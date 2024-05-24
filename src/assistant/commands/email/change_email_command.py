@@ -1,5 +1,8 @@
 from src.decorators import input_error
 from src.models.contact_book.contact_book import ContactBook
+from src.models.contact_book.email import Email
+
+
 
 
 @input_error
@@ -9,6 +12,7 @@ def change_email_command(args: list, contact_book: ContactBook):
     if record is None:
         raise KeyError
     else:
+        email = Email(email)
         record.set_email(email)
         return 'Email has been changed in the contact'
 

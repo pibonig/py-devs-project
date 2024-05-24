@@ -1,5 +1,7 @@
 from src.decorators import input_error
 from src.models.contact_book.contact_book import ContactBook
+from src.models.contact_book.birthday import Birthday
+
 
 
 @input_error
@@ -9,5 +11,6 @@ def change_birthday_command(args: list, contact_book: ContactBook):
     if contact is None:
         raise KeyError
     else:
-        contact.set_birthday(date)
+        birthday = Birthday(date)
+        contact.set_birthday(birthday)
         return 'Birthday has been changed in the contact'
