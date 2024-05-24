@@ -72,7 +72,7 @@ commands = {
     "help": help_command
 }
 
-commands_list = list(commands.keys())
+commands_list = sorted(list(commands.keys()))
 command_completer = WordCompleter(commands_list, ignore_case=True)
 
 
