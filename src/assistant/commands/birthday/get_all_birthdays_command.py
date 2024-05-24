@@ -12,4 +12,4 @@ def show_birthdays_command(contact_book: ContactBook):
         result = ''
         for name, contact in contact_book.items():
             result += f'Name: {contact.name}, Birthday: {contact.birthday}' + "\n"
-        return result
+        return StringResponse(result)

@@ -17,6 +17,6 @@ def get_birthdays(args: list, contact_book: ContactBook):
         if len(book_birthday) > 0:
             for name, birthday in book_birthday.items():
                 result += f'Name: {name}, Birthday: {birthday}' + "\n"
-            return result
+            return StringResponse(result)
         else:
             raise KeyError('There are no birthdays in the period')
