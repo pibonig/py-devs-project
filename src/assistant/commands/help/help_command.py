@@ -1,9 +1,10 @@
 from src.response.base_response import BaseResponse
 from src.response.table_response import TableResponse
 
-def help_command()->BaseResponse:
-    commands_info=[
-         ['Command', 'Parameters', 'Description'],
+
+def help_command() -> BaseResponse:
+    commands_info = [
+        ['Command', 'Parameters', 'Description'],
         ['close, exit', '', 'Exit the bot'],
         ['hello', '', 'Say hello'],
         ['add_address', '[Name] [Address]', 'Add address to contact'],
@@ -34,9 +35,7 @@ def help_command()->BaseResponse:
         ['get_tag', '[Tag]', 'Get note tags'],
         ['sort_by_tags', '[Tag]', 'Sort notes by tags']
     ]
-   
 
     headers = commands_info[0]
     body = commands_info[1:]
-    result= TableResponse(headers, body)
-    return print(result)
+    return TableResponse(headers, body)

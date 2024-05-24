@@ -1,10 +1,11 @@
 from typing import Optional
-from src.response.string_response import StringResponse
+
 from src.models.contact_book.address import Address
 from src.models.contact_book.birthday import Birthday
 from src.models.contact_book.email import Email
 from src.models.contact_book.name import Name
 from src.models.contact_book.phone import Phone
+from src.response.string_response import StringResponse
 
 
 class Contact:
@@ -24,10 +25,10 @@ class Contact:
         for contac_phone in self.phones:
             if str(contac_phone) == phone:
                 self.phones.remove(contac_phone)
-                return 
+                return
         raise ValueError("Phone number not found")
 
-    def edit_phone(self, old_phone: Phone,new_phone: Phone):
+    def edit_phone(self, old_phone: Phone, new_phone: Phone):
         for phone in self.phones:
             if str(phone) == old_phone:
                 phone.value = new_phone
@@ -44,7 +45,7 @@ class Contact:
         return self.email
 
     def delete_email(self):
-        self.email =None
+        self.email = None
 
     def set_address(self, address: Address):
         self.address = address
@@ -68,8 +69,9 @@ class Contact:
         email = self.email if self.email else 'not provided'
         birthday = self.birthday if self.birthday else 'not provided'
         address = self.address if self.address else 'not provided'
-        phones ='; '.join(p.value for p in self.phones) if self.phones else'not provided'
+        phones = '; '.join(p.value for p in self.phones) if self.phones else 'not provided'
         return f"Contact name: {self.name.value}, email: {email}, address: {address}, birthday: {birthday}, phones: {phones}"
-    
+
     def __repr__(self):
-        return StringResponse(f"Contact(name={self.name!r}, phones={self.phones!r}, email={self.email!r}, address={self.address!r}, birthday={self.birthday!r})")
+        return StringResponse(
+            f"Contact(name={self.name!r}, phones={self.phones!r}, email={self.email!r}, address={self.address!r}, birthday={self.birthday!r})")
