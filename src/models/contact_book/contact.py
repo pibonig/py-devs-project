@@ -1,5 +1,4 @@
 from typing import Optional
-
 from src.models.contact_book.address import Address
 from src.models.contact_book.birthday import Birthday
 from src.models.contact_book.email import Email
@@ -72,5 +71,4 @@ class Contact:
         return f"Contact name: {self.name.value}, email: {email}, address: {address}, birthday: {birthday}, phones: {phones}"
     
     def __repr__(self):
-        return (f"Contact(name={self.name!r}, phones={self.phones!r}, "
-                f"email={self.email!r}, address={self.address!r}, birthday={self.birthday!r})")
+        return f"Contact(name={self.name!r}, phones={self.phones!r}, email={self.email!r}, address={self.address!r}, birthday={self.birthday!r})"
