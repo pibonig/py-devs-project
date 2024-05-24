@@ -19,4 +19,4 @@ def get_birthdays(args: list, contact_book: ContactBook):
                 result += f'Name: {name}, Birthday: {birthday}' + "\n"
             return result
         else:
-            return 'There are no birthdays in the period'
+            raise KeyError('There are no birthdays in the period')
