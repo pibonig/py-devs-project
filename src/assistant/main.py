@@ -22,6 +22,10 @@ from src.assistant.commands.note.change_note_command import change_note_command
 from src.assistant.commands.note.delete_note_command import delete_note_command
 from src.assistant.commands.note.get_all_notes_command import get_all_notes_command
 from src.assistant.commands.note.get_note_command import get_note_command
+from src.assistant.commands.note.add_tag_command import add_tag_command
+from src.assistant.commands.note.delete_tag_command import delete_tag_command
+from src.assistant.commands.note.get_tag_command import get_tag_command
+from src.assistant.commands.note.sort_by_tags_command import sort_by_tags
 from src.assistant.commands.phone.add_phone_command import add_phone_command
 from src.assistant.commands.phone.change_phone_command import change_phone_command
 from src.assistant.commands.phone.delete_phone_command import delete_phone_command
@@ -54,6 +58,10 @@ commands = {
     'add_phone': add_phone_command,
     'change_phone': change_phone_command,
     'delete_phone': delete_phone_command,
+    'add_tag':add_tag_command,
+    'delete_tag':delete_tag_command,
+    'get_tag':get_tag_command,
+    'sort_by_tags':sort_by_tags
 }
 
 
