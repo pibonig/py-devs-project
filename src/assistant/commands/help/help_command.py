@@ -1,8 +1,8 @@
-
+from src.assistant.commands.contact.add_contact_command import AddContactCommand
 from src.response.table_response import TableResponse
 
 
-def help_command() :
+def help_command():
     commands_info = [
         ["Command", "Parameters", "Description"],
         ["close, exit", "", "Exit the bot"],
@@ -15,7 +15,7 @@ def help_command() :
         ["delete_birthday", "[Name] [Birthday]", "Delete contact birthday"],
         ["get_all_birthdays", "", "Get all birthdays"],
         ["get_birthday", "[Name] [Birthday]", "Get contact birthday"],
-        ["add_contact", "[Name]", "Add a new contact"],
+        [AddContactCommand.name, AddContactCommand.signature, AddContactCommand.description],
         ["delete_contact", "[Name]", "Delete a contact"],
         ["get_all_contacts", "", "Get all contacts"],
         ["get_contact", "[Name]", "Get contact details"],
