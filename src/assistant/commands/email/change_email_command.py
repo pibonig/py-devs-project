@@ -10,7 +10,7 @@ from starlette.responses import StringResponse
 @input_error
 def change_email_command(args: list, contact_book: ContactBook):
     if len(args) < 2:
-        raise ValueError
+        raise ValueError("No content provided for the note. Example: change_email <name> <email>") 
     name, email = args
     record = contact_book.get_contact(name)
     if record is None:

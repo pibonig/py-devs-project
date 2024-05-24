@@ -8,7 +8,7 @@ from starlette.responses import StringResponse
 @input_error
 def add_contact_command(args: list, contact_book: ContactBook): 
     if len(args) < 2:
-        raise ValueError   
+        raise ValueError("No content provided for the note. Example: add_contact <name> <phone>") 
     name, phone, *_ = args
     contact = contact_book.get_contact(name)
     if contact is None:

@@ -9,7 +9,7 @@ from starlette.responses import StringResponse
 @input_error
 def add_phone_command(args: list, contact_book: ContactBook):
     if len(args) < 2:
-        raise ValueError
+        raise ValueError("No content provided for the note. Example: add_phone <name> <phone>") 
     name, phone = args
     contact = contact_book.get_contact(name)
     if contact is None:

@@ -7,7 +7,7 @@ from starlette.responses import StringResponse
 @input_error
 def get_birthdays(args: list, contact_book: ContactBook):
     if len(args) < 1:
-        raise ValueError
+        raise ValueError("No content provided for the note. Example: get_birthday <days>") 
     days = args
     if not contact_book.data:
         return StringResponse("Address book is empty.")
