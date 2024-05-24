@@ -1,8 +1,10 @@
 import inspect
+import sys
 
 from prompt_toolkit import prompt
 from prompt_toolkit.completion import WordCompleter
 
+from lib.storage import Storage
 from src.assistant.commands.address.add_address_command import add_address_command
 from src.assistant.commands.address.change_address_command import change_address_command
 from src.assistant.commands.address.delete_address_command import delete_address_command
@@ -33,7 +35,8 @@ from src.assistant.commands.phone.add_phone_command import add_phone_command
 from src.assistant.commands.phone.change_phone_command import change_phone_command
 from src.assistant.commands.phone.delete_phone_command import delete_phone_command
 from src.models.contact_book.contact_book import ContactBook
-from src.response.base_response import BaseResponse
+from src.models.notebook.notebook import Notebook
+from src.response.table_response import TableResponse
 
 commands = {
     "close": close_command,
@@ -70,7 +73,6 @@ commands = {
 }
 
 commands_list = list(commands.keys())
-
 command_completer = WordCompleter(commands_list, ignore_case=True)
 
 
@@ -80,8 +82,11 @@ def parse_input(user_input: str) -> tuple:
 
 
 def start():
-    # TODO: load book from storage
-    contact_book = ContactBook()
+    contact_book_loaded = Storage.load(ContactBook.pickle_file)
+    contact_book: ContactBook = contact_book_loaded if contact_book_loaded else ContactBook()
+
+    notebook_loaded = Storage.load(Notebook.pickle_file)
+    notebook: Notebook = notebook_loaded if notebook_loaded else Notebook()
 
     print("Welcome to the assistant bot!")
 
@@ -96,16 +101,24 @@ def start():
         if command in commands:
             unwrapped_function = inspect.unwrap(commands[command])
             sig = inspect.signature(unwrapped_function)
-            response = None
 
-            if len(sig.parameters) == 0:
-                response = commands[command]()
-            elif len(sig.parameters) == 1:
-                response = commands[command](contact_book)
-            elif len(sig.parameters) == 2:
-                response = commands[command](args, contact_book)
+            params = list()
+            for param in sig.parameters.values():
+                if param.annotation == list:
+                    params.append(args)
+                elif param.annotation == ContactBook:
+                    params.append(contact_book)
+                elif param.annotation == Notebook:
+                    params.append(notebook)
 
-            if isinstance(response, BaseResponse):
+            response = commands[command](*params)
+
+            if isinstance(response, TableResponse) or isinstance(response, str):
                 print(response)
+            elif response is False:
+                Storage.save(ContactBook.pickle_file, contact_book)
+                print("Good bye!")
+                sys.exit(1)
+
         else:
             print("Invalid command.")

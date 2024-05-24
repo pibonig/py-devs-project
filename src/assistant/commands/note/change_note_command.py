@@ -1,11 +1,9 @@
 from src.decorators import input_error
-from src.models.notebook.notebook import NoteBook
-from src.response.base_response import BaseResponse
-from src.response.string_response import StringResponse
+from src.models.notebook.notebook import Notebook
 
 
 @input_error
-def change_note_command(args: list, notebook: NoteBook) -> BaseResponse:
+def change_note_command(args: list, notebook: Notebook):
     if len(args) < 2:
         raise ValueError('Invalid arguments. Example: edit_note <note_title> <content>')
 
@@ -16,6 +14,6 @@ def change_note_command(args: list, notebook: NoteBook) -> BaseResponse:
 
     if note:
         note.change(new_content)
-        return StringResponse(f"Note '{note_title}' updated to: {new_content}")
+        return f"Note '{note_title}' updated to: {new_content}"
     else:
         raise KeyError(f"Note with title '{note_title}' not found")

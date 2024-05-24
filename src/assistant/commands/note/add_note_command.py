@@ -1,12 +1,10 @@
 from src.decorators import input_error
 from src.models.notebook.note import Note
-from src.models.notebook.notebook import NoteBook
-from src.response.base_response import BaseResponse
-from src.response.string_response import StringResponse
+from src.models.notebook.notebook import Notebook
 
 
 @input_error
-def add_note_command(args: list, notebook: NoteBook) -> BaseResponse:
+def add_note_command(args: list, notebook: Notebook):
     if len(args) < 2:
         raise ValueError("No content provided for the note. Example: add_note <title> <content>")
 
@@ -14,4 +12,4 @@ def add_note_command(args: list, notebook: NoteBook) -> BaseResponse:
     note_content = ''.join(args[1:])
     note = Note(title=note_title, content=note_content)
     notebook.add_note(note)
-    return StringResponse("Note added")
+    return "Note added"

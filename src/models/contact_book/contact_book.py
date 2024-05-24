@@ -6,6 +6,8 @@ from src.response.table_response import TableResponse
 
 
 class ContactBook(UserDict[Contact]):
+    pickle_file = 'contact_book.pickle'
+
     def add_contact(self, contact: Contact):
         self.data[contact.name.value] = contact
 
@@ -34,22 +36,22 @@ class ContactBook(UserDict[Contact]):
                     row = [contact.name, birthday_date.strftime("%d.%m.%Y")]
                     result.append(row)
         result.sort(key=lambda x: datetime.strptime(x[1], "%d.%m.%Y"))
+
         if len(result) == 0:
             return None
-        return TableResponse(headers, result)
+
+        return repr(TableResponse(headers, result))
 
     def __repr__(self):
         headers = ["Name", "Address", "Email", "Phones", "Birthday"]
         table = []
         for contact in self.data.values():
-            row = [
+            table.append([
                 contact.name,
                 contact.address if contact.address else "",
                 contact.email if contact.email else "",
                 contact.phones if contact.phones else "",
                 contact.birthday if contact.birthday else ""
-            ]
-            table.append(row)
-        if len(table) == 0:
-            return None
-        return TableResponse(headers, table)
+            ])
+
+        return repr(TableResponse(headers, table))

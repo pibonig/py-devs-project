@@ -5,26 +5,24 @@ from src.models.contact_book.birthday import Birthday
 from src.models.contact_book.email import Email
 from src.models.contact_book.name import Name
 from src.models.contact_book.phone import Phone
-from src.response.string_response import StringResponse
 
 
 class Contact:
-    name: Name
-    phones: list[Phone] = []
-    email: Optional[Email] = None
-    address: Optional[Address] = None
-    birthday: Optional[Birthday] = None
 
     def __init__(self, name: str):
         self.name = Name(name)
+        self.phones: list[Phone] = []
+        self.email: Optional[Email] = None
+        self.address: Optional[Address] = None
+        self.birthday: Optional[Birthday] = None
 
     def add_phone(self, phone: Phone):
-        self.phones.append(Phone(phone))
+        self.phones.append(phone)
 
     def delete_phone(self, phone: Phone):
-        for contac_phone in self.phones:
-            if str(contac_phone) == phone:
-                self.phones.remove(contac_phone)
+        for contact_phone in self.phones:
+            if str(contact_phone) == phone:
+                self.phones.remove(contact_phone)
                 return
         raise ValueError("Phone number not found")
 
@@ -73,5 +71,4 @@ class Contact:
         return f"Contact name: {self.name.value}, email: {email}, address: {address}, birthday: {birthday}, phones: {phones}"
 
     def __repr__(self):
-        return StringResponse(
-            f"Contact(name={self.name!r}, phones={self.phones!r}, email={self.email!r}, address={self.address!r}, birthday={self.birthday!r})")
+        return f"Contact(name={self.name!r}, phones={self.phones!r}, email={self.email!r}, address={self.address!r}, birthday={self.birthday!r})"

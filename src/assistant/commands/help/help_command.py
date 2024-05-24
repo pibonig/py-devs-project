@@ -1,8 +1,8 @@
-from src.response.base_response import BaseResponse
+
 from src.response.table_response import TableResponse
 
 
-def help_command() -> BaseResponse:
+def help_command() :
     commands_info = [
         ["Command", "Parameters", "Description"],
         ["close, exit", "", "Exit the bot"],
