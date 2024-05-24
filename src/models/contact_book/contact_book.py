@@ -1,6 +1,6 @@
 from collections import UserDict
 from datetime import datetime, timedelta
-from tabulate import tabulate
+from src.response.table_response import TableResponse
 from src.models.contact_book.contact import Contact
 
 
@@ -25,7 +25,8 @@ class ContactBook(UserDict[Contact]):
         result = []
         for contact in self.data.values():
             if contact.birthday:
-                birthday_date = contact.birthday.value.date().replace(year=current_year)
+                birthday = datetime.strptime(contact.birthday, "%d.%m.%Y")
+                birthday_date = birthday.date().replace(year=current_year)
                 if birthday_date < current_date:
                     birthday_date = birthday_date.replace(year=current_year + 1)
                 if current_date <= birthday_date <= current_timedelta:
@@ -34,9 +35,9 @@ class ContactBook(UserDict[Contact]):
         result.sort(key=lambda x: datetime.strptime(x[1], "%d.%m.%Y"))
         if len(result) == 0:
             return None
-        return tabulate(result, headers, tablefmt="grid")
+        return TableResponse(headers, result)
 
-    def __str__(self):
+    def __repr__(self):
         headers = ["Name", "Address", "Email", "Phones", "Birthday"]
         table = []
         for contact in self.data.values():
@@ -50,8 +51,6 @@ class ContactBook(UserDict[Contact]):
             table.append(row)
         if len(table) == 0:
             return None
-        return tabulate(table, headers, tablefmt="grid")
+        return TableResponse(headers, table)
 
-    def __repr__(self):
-        return f"ContactBook: {self.data}"
-
+ 
