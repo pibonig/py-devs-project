@@ -29,6 +29,7 @@ from src.assistant.commands.note.sort_by_tags_command import sort_by_tags
 from src.assistant.commands.phone.add_phone_command import add_phone_command
 from src.assistant.commands.phone.change_phone_command import change_phone_command
 from src.assistant.commands.phone.delete_phone_command import delete_phone_command
+from src.assistant.commands.help.help_command import help_command
 from src.models.contact_book.contact_book import ContactBook
 
 commands = {
@@ -61,7 +62,8 @@ commands = {
     'add_tag':add_tag_command,
     'delete_tag':delete_tag_command,
     'get_tag':get_tag_command,
-    'sort_by_tags':sort_by_tags
+    'sort_by_tags':sort_by_tags,
+    'help': help_command
 }
 
 
@@ -85,6 +87,8 @@ def start():
             continue
 
         if command in commands:
+            if command =="help":
+                return help_command()
             unwrapped_function = inspect.unwrap(commands[command])
             sig = inspect.signature(unwrapped_function)
             if len(sig.parameters) == 0:
