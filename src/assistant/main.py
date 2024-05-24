@@ -1,3 +1,5 @@
+import inspect
+
 from src.assistant.commands import close_command, hello_command
 from src.assistant.commands.address import add_address_command, change_address_command, delete_address_command
 from src.assistant.commands.birthday import add_birthday_command, change_birthday_command, delete_birthday_command, \
@@ -8,6 +10,7 @@ from src.assistant.commands.email import add_email_command, change_email_command
 from src.assistant.commands.note import add_note_command, change_note_command, delete_note_command, \
     get_all_notes_command, get_note_command
 from src.assistant.commands.phone import add_phone_command, change_phone_command, delete_phone_command
+from src.models.contact_book.contact_book import ContactBook
 
 commands = {
     'close': close_command,
@@ -38,5 +41,33 @@ commands = {
 }
 
 
+def parse_input(user_input: str) -> tuple:
+    command, *args = user_input.lower().split()
+    return command, args
+
+
 def start():
-    pass
+    # TODO: load book from storage
+    contact_book = ContactBook()
+
+    print('Welcome to the assistant bot!')
+
+    while True:
+        user_input = input('Enter a command: ')
+        try:
+            command, args = parse_input(user_input)
+        except ValueError:
+            print('Input is empty.')
+            continue
+
+        if command in commands:
+            unwrapped_function = inspect.unwrap(commands[command])
+            sig = inspect.signature(unwrapped_function)
+            if len(sig.parameters) == 0:
+                commands[command]()
+            elif len(sig.parameters) == 1:
+                commands[command](contact_book)
+            elif len(sig.parameters) == 2:
+                commands[command](args, contact_book)
+        else:
+            print('Invalid command.')
