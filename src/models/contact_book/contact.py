@@ -1,5 +1,5 @@
 from typing import Optional
-from response.string_response import StringResponse
+from src.response.string_response import StringResponse
 from src.models.contact_book.address import Address
 from src.models.contact_book.birthday import Birthday
 from src.models.contact_book.email import Email
