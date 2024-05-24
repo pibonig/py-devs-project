@@ -7,7 +7,7 @@ def add_email_command(args: list, contact_book: ContactBook):
     name, email = args
     contact = contact_book.get_contact(name)
     if contact is None:
-        raise KeyError('Contact does not exist')
+        raise KeyError
     else:
         contact.set_email(email)
         return 'Email has been added to the contact'

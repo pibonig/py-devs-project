@@ -7,7 +7,7 @@ def delete_email_command(args: list, contact_book: ContactBook):
     name = args
     contact = contact_book.get_contact(name)
     if contact is None:
-        raise KeyError('Contact does not exist')
+        raise KeyError
     else:
         contact.delete_email()
         return 'Email has been deleted in the contact'

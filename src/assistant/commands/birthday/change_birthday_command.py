@@ -7,7 +7,7 @@ def change_birthday_command(args: list, contact_book: ContactBook):
     name, date = args
     contact = contact_book.get_contact(name)
     if contact is None:
-        raise KeyError('Contact does not exist')
+        raise KeyError
     else:
         contact.set_birthday(date)
         return 'Birthday has been changed in the contact'

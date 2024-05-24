@@ -1,5 +1,5 @@
 import pickle
-
+from src.models.contact_book.contact_book import ContactBook
 
 class Storage:
     @classmethod
@@ -9,5 +9,8 @@ class Storage:
 
     @classmethod
     def load(cls, file_path):
-        with open(file_path, 'rb') as f:
-            return pickle.load(f)
+        try:
+            with open(file_path, 'rb') as f:
+                return pickle.load(f)
+        except FileNotFoundError:
+            return ContactBook()
