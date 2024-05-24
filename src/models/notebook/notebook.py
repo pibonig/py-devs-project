@@ -5,7 +5,9 @@ from src.response.table_response import TableResponse
 
 
 @dataclass
-class NoteBook:
+class Notebook:
+    pickle_file = 'note_book.pickle'
+
     def __init__(self):
         self.notes = []
 
@@ -31,4 +33,4 @@ class NoteBook:
     def __repr__(self):
         body = [[note.title, note.content, ', '.join(note.tags)] for note in self.notes] if self.notes else [
             ["", "", ""]]
-        return TableResponse(headers=["Title", "Content", "Tags"], body=body)
+        return repr(TableResponse(headers=["Title", "Content", "Tags"], body=body))

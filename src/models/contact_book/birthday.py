@@ -1,7 +1,6 @@
 from datetime import datetime
 
 from src.models.field import Field
-from src.response.string_response import StringResponse
 
 
 class Birthday(Field):
@@ -17,4 +16,4 @@ class Birthday(Field):
             raise ValueError("Invalid date format. Use DD.MM.YYYY")
 
     def __repr__(self):
-        return StringResponse(self.__value.strftime("%d.%m.%Y"))
+        return self.__value.strftime("%d.%m.%Y")
