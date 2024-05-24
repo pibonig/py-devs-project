@@ -6,11 +6,10 @@ from prompt_toolkit.completion import WordCompleter
 from src.assistant.commands.address.add_address_command import add_address_command
 from src.assistant.commands.address.change_address_command import change_address_command
 from src.assistant.commands.address.delete_address_command import delete_address_command
+from src.assistant.commands.birthday import get_all_birthdays_command, get_birthday_command
 from src.assistant.commands.birthday.add_birthday_command import add_birthday_command
 from src.assistant.commands.birthday.change_birthday_command import change_birthday_command
 from src.assistant.commands.birthday.delete_birthday_command import delete_birthday_command
-from src.assistant.commands.birthday.get_all_birthdays_command import get_all_birthdays_command
-from src.assistant.commands.birthday.get_birthday_command import get_birthday_command
 from src.assistant.commands.close_command import close_command
 from src.assistant.commands.contact.add_contact_command import add_contact_command
 from src.assistant.commands.contact.delete_contact_command import delete_contact_command
@@ -34,6 +33,7 @@ from src.assistant.commands.phone.add_phone_command import add_phone_command
 from src.assistant.commands.phone.change_phone_command import change_phone_command
 from src.assistant.commands.phone.delete_phone_command import delete_phone_command
 from src.models.contact_book.contact_book import ContactBook
+from src.response.base_response import BaseResponse
 
 commands = {
     "close": close_command,
@@ -96,11 +96,16 @@ def start():
         if command in commands:
             unwrapped_function = inspect.unwrap(commands[command])
             sig = inspect.signature(unwrapped_function)
+            response = None
+
             if len(sig.parameters) == 0:
-                commands[command]()
+                response = commands[command]()
             elif len(sig.parameters) == 1:
-                commands[command](contact_book)
+                response = commands[command](contact_book)
             elif len(sig.parameters) == 2:
-                commands[command](args, contact_book)
+                response = commands[command](args, contact_book)
+
+            if isinstance(response, BaseResponse):
+                print(response)
         else:
             print("Invalid command.")
