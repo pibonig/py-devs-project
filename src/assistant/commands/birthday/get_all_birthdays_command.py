@@ -4,5 +4,5 @@ from src.response.base_response import BaseResponse
 
 
 @input_error
-def show_birthdays_command(contact_book: ContactBook) -> BaseResponse:
+def get_all_birthdays_command(contact_book: ContactBook) -> BaseResponse:
     pass
