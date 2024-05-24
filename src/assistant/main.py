@@ -1,5 +1,8 @@
 import inspect
 
+from prompt_toolkit import prompt
+from prompt_toolkit.completion import WordCompleter
+
 from src.assistant.commands.address.add_address_command import add_address_command
 from src.assistant.commands.address.change_address_command import change_address_command
 from src.assistant.commands.address.delete_address_command import delete_address_command
@@ -64,6 +67,9 @@ commands = {
     'sort_by_tags':sort_by_tags
 }
 
+commands_list = list(commands.keys())
+
+command_completer = WordCompleter(commands_list, ignore_case=True)
 
 def parse_input(user_input: str) -> tuple:
     command, *args = user_input.lower().split()
@@ -77,7 +83,7 @@ def start():
     print('Welcome to the assistant bot!')
 
     while True:
-        user_input = input('Enter a command: ')
+        user_input = prompt('Enter a command: ', completer=command_completer)
         try:
             command, args = parse_input(user_input)
         except ValueError:
