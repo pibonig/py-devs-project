@@ -14,7 +14,8 @@ from src.models.contact_book.contact_book import ContactBook
 
 commands = {
     'close': close_command,
-    'exit': hello_command,
+    'exit': close_command,
+    'hello': hello_command,
     'add_address': add_address_command,
     'change_address': change_address_command,
     'delete_address': delete_address_command,
