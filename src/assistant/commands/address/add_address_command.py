@@ -16,4 +16,4 @@ def add_address_command(args: list, contact_book: ContactBook) -> BaseResponse:
     else:
         address = Address(address_value)
         contact.set_address(address)
-        return StringResponse('Address has been added to the contact')
+        return StringResponse("Address has been added to the contact")

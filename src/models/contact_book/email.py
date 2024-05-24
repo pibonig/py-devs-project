@@ -1,5 +1,7 @@
 import re
+
 from src.models.field import Field
+
 
 class Email(Field):
     @property
@@ -14,4 +16,3 @@ class Email(Field):
             self.__value = value
         else:
             raise ValueError("Invalid email format. Try example@example.example")
-        

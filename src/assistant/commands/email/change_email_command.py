@@ -16,4 +16,4 @@ def change_email_command(args: list, contact_book: ContactBook) -> BaseResponse:
     else:
         email = Email(email)
         record.set_email(email)
-        return StringResponse('Email has been changed in the contact')
+        return StringResponse("Email has been changed in the contact")

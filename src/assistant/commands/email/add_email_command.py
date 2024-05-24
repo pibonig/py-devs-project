@@ -16,4 +16,4 @@ def add_email_command(args: list, contact_book: ContactBook) -> BaseResponse:
     else:
         email = Email(email)
         contact.set_email(email)
-        return StringResponse('Email has been added to the contact')
+        return StringResponse("Email has been added to the contact")

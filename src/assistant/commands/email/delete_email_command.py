@@ -14,4 +14,4 @@ def delete_email_command(args: list, contact_book: ContactBook) -> BaseResponse:
         raise KeyError
     else:
         contact.delete_email()
-        return StringResponse('Email has been deleted in the contact')
+        return StringResponse("Email has been deleted in the contact")

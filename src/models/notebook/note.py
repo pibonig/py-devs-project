@@ -2,14 +2,12 @@ from src.models.field import Field
 from src.response.table_response import TableResponse
 
 
-
 class Note(Field):
-    def __init__(self, title: str, content: str, tags: str=""):
+    def __init__(self, title: str, content: str, tags: str = ""):
         super().__init__(content)
         self.title = title
         self.tags = []
         self.tags = tags.split()
-
 
     def add_tag(self, tag: str):
         if tag not in self.tags:

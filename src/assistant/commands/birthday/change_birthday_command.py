@@ -16,4 +16,4 @@ def change_birthday_command(args: list, contact_book: ContactBook) -> BaseRespon
     else:
         birthday = Birthday(date)
         contact.set_birthday(birthday)
-        return StringResponse('Birthday has been changed in the contact')
+        return StringResponse("Birthday has been changed in the contact")

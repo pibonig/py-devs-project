@@ -16,4 +16,4 @@ def change_address_command(args: list, contact_book: ContactBook) -> BaseRespons
     else:
         address = Address(address_value)
         contact.set_address(address)
-        return StringResponse('Address has been changed to the contact')
+        return StringResponse("Address has been changed to the contact")
