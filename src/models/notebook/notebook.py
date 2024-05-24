@@ -1,11 +1,15 @@
 from dataclasses import dataclass
 
 from src.models.notebook.note import Note
+from src.response.table_response import TableResponse
+
 
 
 @dataclass
 class NoteBook:
-    notes: list[Note]
+    def __init__(self):
+        self.notes = []
+
 
     def add_note(self, note: Note):
         self.notes.append(note)
@@ -27,8 +31,9 @@ class NoteBook:
         return self.notes
 
     def __str__(self):
-        note_titles = [note.title for note in self.notes]
-        return ", ".join(note_titles)
+        body = [[note.title, note.content, ', '.join(note.tags)] for note in self.notes] if self.notes else [["", "", ""]]
+        table = TableResponse(headers=["Title", "Content", "Tags"], body=body)
+        return str(table)
 
     def __repr__(self):
-        return f"NoteBook(notes={self.notes})"
+        return self.__str__()
