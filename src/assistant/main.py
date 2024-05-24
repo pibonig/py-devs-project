@@ -87,8 +87,6 @@ def start():
             continue
 
         if command in commands:
-            if command =="help":
-                return help_command()
             unwrapped_function = inspect.unwrap(commands[command])
             sig = inspect.signature(unwrapped_function)
             if len(sig.parameters) == 0:

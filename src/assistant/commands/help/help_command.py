@@ -1,4 +1,7 @@
-def help_command():
+from src.response.base_response import BaseResponse
+from src.response.table_response import TableResponse
+
+def help_command()->BaseResponse:
     commands_info=[
          ['Command', 'Parameters', 'Description'],
         ['close, exit', '', 'Exit the bot'],
@@ -33,10 +36,7 @@ def help_command():
     ]
    
 
-    dashes = "{0:<20} + {1:<30} + {2:^40}".format("-" * 20, "-" * 30, "-" * 40)
-    help_string = dashes + "\n"
-
-    for cmd in commands_info:
-        help_string += "{:<20} | {:<30} | {:<40}\n".format(*cmd)
-    
-    print (help_string)
+    headers = commands_info[0]
+    body = commands_info[1:]
+    result= TableResponse(headers, body)
+    return print(result)
