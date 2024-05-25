@@ -31,7 +31,6 @@ from src.assistant.commands.birthday.get_birthday_command import GetBirthdaysCom
 from src.response.table_response import TableResponse
 
 
-
 class HelpCommand:
     name = "help"
     signature = ""
