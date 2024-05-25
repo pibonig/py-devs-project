@@ -22,6 +22,11 @@ from src.assistant.commands.note.get_all_notes_command import GetAllNotesCommand
 from src.assistant.commands.note.get_note_command import GetNoteCommand
 from src.assistant.commands.note.get_tag_command import GetTagCommand
 from src.assistant.commands.note.sort_by_tags_command import SortByTagsCommand
+from src.assistant.commands.birthday.add_birthday_command import AddBirthdayCommand
+from src.assistant.commands.birthday.change_birthday_command import ChangeBirthdayCommand
+from src.assistant.commands.birthday.delete_birthday_command import DeleteBirthdayCommand
+from src.assistant.commands.birthday.get_all_birthdays_command import GetAllBirthdaysCommand
+from src.assistant.commands.birthday.get_birthday_command import GetBirthdaysCommand
 
 from src.response.table_response import TableResponse
 
@@ -34,11 +39,11 @@ def help_command():
         [AddAddressCommand.name, AddAddressCommand.signature, AddAddressCommand.description],
         [ChangeAddressCommand.name, ChangeAddressCommand.signature, ChangeAddressCommand.description],
         [DeleteAddressCommand.name, DeleteAddressCommand.signature, DeleteAddressCommand.description],
-        ["add_birthday", "[Name] [Birthday]", "Add birthday to contact"],
-        ["change_birthday", "[Name] [Birthday]", "Change contact birthday"],
-        ["delete_birthday", "[Name] [Birthday]", "Delete contact birthday"],
-        ["get_all_birthdays", "", "Get all birthdays"],
-        ["get_birthday", "[Name] [Birthday]", "Get contact birthday"],
+        [AddBirthdayCommand.name, AddBirthdayCommand.signature, AddBirthdayCommand.description],
+        [ChangeBirthdayCommand.name, ChangeBirthdayCommand.signature, ChangeBirthdayCommand.description],
+        [DeleteBirthdayCommand.name, DeleteBirthdayCommand.signature, DeleteBirthdayCommand.description],
+        [GetAllBirthdaysCommand.name, GetAllBirthdaysCommand.signature, GetAllBirthdaysCommand.description],
+        [GetBirthdaysCommand.name, GetBirthdaysCommand.signature, GetBirthdaysCommand.description],
         [AddContactCommand.name, AddContactCommand.signature, AddContactCommand.description],
         [DeleteContactCommand.name, DeleteContactCommand.signature, DeleteContactCommand.description],
         [GetAllContactsCommand.name, GetAllContactsCommand.signature, GetAllContactsCommand.description],

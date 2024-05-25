@@ -8,10 +8,11 @@ from lib.storage import Storage
 from src.assistant.commands.address.add_address_command import AddAddressCommand
 from src.assistant.commands.address.change_address_command import ChangeAddressCommand
 from src.assistant.commands.address.delete_address_command import DeleteAddressCommand
-from src.assistant.commands.birthday import get_all_birthdays_command, get_birthday_command
-from src.assistant.commands.birthday.add_birthday_command import add_birthday_command
-from src.assistant.commands.birthday.change_birthday_command import change_birthday_command
-from src.assistant.commands.birthday.delete_birthday_command import delete_birthday_command
+from src.assistant.commands.birthday.get_all_birthdays_command import GetAllBirthdaysCommand
+from src.assistant.commands.birthday.get_birthday_command import GetBirthdaysCommand
+from src.assistant.commands.birthday.add_birthday_command import AddBirthdayCommand
+from src.assistant.commands.birthday.change_birthday_command import ChangeBirthdayCommand
+from src.assistant.commands.birthday.delete_birthday_command import DeleteBirthdayCommand
 from src.assistant.commands.close_command import CloseCommand
 from src.assistant.commands.contact.add_contact_command import AddContactCommand
 from src.assistant.commands.contact.delete_contact_command import DeleteContactCommand
@@ -45,11 +46,11 @@ commands = {
     AddAddressCommand.name: AddAddressCommand,
     ChangeAddressCommand.name: ChangeAddressCommand,
     DeleteAddressCommand.name: DeleteAddressCommand,
-    "add_birthday": add_birthday_command,
-    "change_birthday": change_birthday_command,
-    "delete_birthday": delete_birthday_command,
-    "get_all_birthdays": get_all_birthdays_command,
-    "get_birthday": get_birthday_command,
+    AddBirthdayCommand.name: AddBirthdayCommand,
+    ChangeBirthdayCommand.name: ChangeBirthdayCommand,
+    DeleteBirthdayCommand.name: DeleteBirthdayCommand,
+    GetAllBirthdaysCommand.name: GetAllBirthdaysCommand,
+    GetBirthdaysCommand.name: GetBirthdaysCommand,
     AddContactCommand.name: AddContactCommand,
     DeleteContactCommand.name: DeleteContactCommand,
     GetAllContactsCommand.name: GetAllContactsCommand,
