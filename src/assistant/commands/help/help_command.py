@@ -1,4 +1,14 @@
 from src.assistant.commands.contact.add_contact_command import AddContactCommand
+from src.assistant.commands.note.add_note_command import AddNoteCommand
+from src.assistant.commands.note.add_tag_command import AddTagCommand
+from src.assistant.commands.note.change_note_command import ChangeNoteCommand
+from src.assistant.commands.note.delete_note_command import DeleteNoteCommand
+from src.assistant.commands.note.delete_tag_command import DeleteTagCommand
+from src.assistant.commands.note.get_all_notes_command import GetAllNotesCommand
+from src.assistant.commands.note.get_note_command import GetNoteCommand
+from src.assistant.commands.note.get_tag_command import GetTagCommand
+from src.assistant.commands.note.sort_by_tags_command import SortByTagsCommand
+
 from src.response.table_response import TableResponse
 
 
@@ -22,18 +32,18 @@ def help_command():
         ["add_email", "[Name] [Email]", "Add email to contact"],
         ["change_email", "[Name] [Email]", "Change contact email"],
         ["delete_email", "[Name] [Email]", "Delete contact email"],
-        ["add_note", "[Note_title] [Note]", "Add note to contact"],
-        ["change_note", "[Note_title] [Note]", "Change contact note"],
-        ["delete_note", "[Note_title]", "Delete contact note"],
-        ["get_all_notes", "", "Get all notes"],
-        ["get_note", "[Note_title]", "Get contact note"],
+        [AddNoteCommand.name, AddNoteCommand.signature, AddNoteCommand.description],
+        [ChangeNoteCommand.name, ChangeNoteCommand.signature, ChangeNoteCommand.description],
+        [DeleteNoteCommand.name, DeleteNoteCommand.signature, DeleteNoteCommand.description],
+        [GetAllNotesCommand.name, GetAllNotesCommand.signature, GetAllNotesCommand.description],
+        [GetNoteCommand.name, GetNoteCommand.signature, GetNoteCommand.description],
         ["add_phone", "[Name] [Phone]", "Add phone to contact"],
         ["change_phone", "[Name] [Phone]", "Change contact phone"],
         ["delete_phone", "[Name] [Phone]", "Delete contact phone"],
-        ["add_tag", "[Note_title] [Tag]", "Add tag to note"],
-        ["delete_tag", "[Note_title] [Tag]", "Delete tag from note"],
-        ["get_tag", "[Tag]", "Get note tags"],
-        ["sort_by_tags", "[Tag]", "Sort notes by tags"]
+        [AddTagCommand.name, AddTagCommand.signature, AddTagCommand.description],
+        [DeleteTagCommand.name, DeleteTagCommand.signature, DeleteTagCommand.description],
+        [GetTagCommand.name, GetTagCommand.signature, GetTagCommand.description],
+        [SortByTagsCommand.name, SortByTagsCommand.signature, SortByTagsCommand.description],
     ]
 
     headers = commands_info[0]
