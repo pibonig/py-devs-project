@@ -1,11 +1,17 @@
 from src.decorators import input_error
 from src.models.notebook.notebook import Notebook
+from src.exceptions.invalid_command_params_exception import InvalidCommandParamsException
 
+
+class GetTagCommand:
+    name = "get_tag"
+    signature = "<tag>"
+    description = "Retrieve notes with a specific tag"
 
 @input_error
-def get_tag_command(args: list, notebook: Notebook):
+def execute(self, args: list, notebook: Notebook):
     if not args:
-        raise ValueError("No search query provided. Example get_tag <tag>")
+        raise InvalidCommandParamsException(self)
 
     tag = ''.join(args)
     matching_notes = []

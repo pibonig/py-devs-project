@@ -1,14 +1,18 @@
 from src.decorators import input_error
 from src.models.notebook.notebook import Notebook
+from src.exceptions.invalid_command_params_exception import InvalidCommandParamsException
 
+class ChangeNoteCommand:
+    name = "change_note"
+    signature = "<note_title> <content>"
+    description = "Change the content of an existing note"
 
 @input_error
-def change_note_command(args: list, notebook: Notebook):
+def execute(self,args: list, notebook: Notebook):
     if len(args) < 2:
-        raise ValueError('Invalid arguments. Example: edit_note <note_title> <content>')
+        raise InvalidCommandParamsException(self)
 
     note_title = args[0]
-
     new_content = ''.join(args[1:])
     note = notebook.get_note(note_title)
 

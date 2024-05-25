@@ -1,9 +1,18 @@
+from src.decorators import input_error
 from src.models.notebook.notebook import Notebook
+from src.exceptions.invalid_command_params_exception import InvalidCommandParamsException
 
 
-def sort_by_tags(args: list, notebook: Notebook):
+class SortByTagsCommand:
+    name = "sort_by_tags"
+    signature = "<tag>"
+    description = "Sort notes by a specific tag"
+
+
+@input_error
+def execute(self,args: list, notebook: Notebook):
     if not args:
-        raise ValueError("No sort query provided. Example sort_by_tags <tag>")
+        raise InvalidCommandParamsException(self)
 
     tag = ' '.join(args)
     matching_notes = []

@@ -1,13 +1,19 @@
 from src.decorators import input_error
 from src.models.notebook.notebook import Notebook
+from src.exceptions.invalid_command_params_exception import InvalidCommandParamsException
 
+
+class AddTagCommand:
+    name = "add_tag"
+    signature = "<note_title> <tag>"
+    description = "Add tag to note"
 
 @input_error
-def add_tag_command(args: list, notebook: Notebook):
+def execute(self,args: list, notebook: Notebook):
     if len(args) < 2:
-        raise ValueError("Invalid arguments. Example: add_tag <note_title> <tag>")
+        raise InvalidCommandParamsException(self)
 
-    note_title = int(args[0])
+    note_title = args[0]
     tag = args[1]
 
     note = notebook.get_note(note_title)

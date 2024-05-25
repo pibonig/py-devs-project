@@ -1,11 +1,18 @@
 from src.decorators import input_error
 from src.models.notebook.notebook import Notebook
+from src.exceptions.invalid_command_params_exception import InvalidCommandParamsException
+
+
+class DeleteTagCommand:
+    name = "delete_tag"
+    signature = "<note_title> <tag>"
+    description = "Delete a tag from an existing note"
 
 
 @input_error
-def delete_tag_command(args: list, notebook: Notebook):
+def execute(self,args: list, notebook: Notebook):
     if len(args) != 2:
-        raise ValueError("Invalid arguments. Example: delete_note <note_title> <tag>")
+        raise InvalidCommandParamsException(self)
 
     note_title = args[0]
     tag = args[1]

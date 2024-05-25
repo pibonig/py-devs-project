@@ -1,13 +1,19 @@
 from src.decorators import input_error
 from src.models.notebook.notebook import Notebook
+from src.exceptions.invalid_command_params_exception import InvalidCommandParamsException
 
+
+class GetNoteCommand:
+    name = "get_note"
+    signature = "<title>"
+    description = "Retrieve a note by its title"
 
 @input_error
-def get_note_command(args: list, notebook: Notebook):
+def execute(self, args: list, notebook: Notebook):
     if not args:
-        raise ValueError("No search query provided. Example search_note <title>")
+        raise InvalidCommandParamsException(self)
     title = ''.join(args)
-    result = notebook.get_note(title)
+    result = notebook.get_note_by_title(title)
 
     if result:
         return str(result)
