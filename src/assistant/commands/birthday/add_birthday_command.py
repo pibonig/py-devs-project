@@ -1,8 +1,10 @@
+from colorama import Fore
+
 from src.decorators import input_error
+from src.exceptions.invalid_command_params_exception import InvalidCommandParamsException
 from src.models.contact_book.birthday import Birthday
 from src.models.contact_book.contact_book import ContactBook
-from src.exceptions.invalid_command_params_exception import InvalidCommandParamsException
-from colorama import Fore
+
 
 class AddBirthdayCommand:
     name = "add_birthday"
