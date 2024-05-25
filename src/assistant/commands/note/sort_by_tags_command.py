@@ -29,7 +29,3 @@ class SortByTagsCommand:
             raise ValueError(f"No notes found with tag '{tag}'")
 
 
-command = SortByTagsCommand()
-notebook = Notebook()
-result = command.execute(["Importante"], notebook)
-print(result)
