@@ -4,7 +4,7 @@ from src.models.contact_book.contact_book import ContactBook
 from src.models.contact_book.phone import Phone
 
 class DeletePhoneCommand:
-    name = "delete_contact"
+    name = "delete_phone"
     signature = "<name> <phone>"
     description = "Delete contact phone"
 

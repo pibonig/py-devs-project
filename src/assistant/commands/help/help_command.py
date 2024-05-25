@@ -1,3 +1,14 @@
+from src.assistant.commands.email.delete_email_command import DeleteEmailCommand
+from src.assistant.commands.email.change_email_command import ChangeEmailCommand
+from src.assistant.commands.email.add_email_command import AddEmailCommand
+from src.assistant.commands.contact.get_contact_command import GetContactCommand
+from src.assistant.commands.contact.get_all_contacts_command import GetAllContactsCommand
+from src.assistant.commands.contact.delete_contact_command import DeleteContactCommand
+from src.assistant.commands.phone.delete_phone_command import DeletePhoneCommand
+from src.assistant.commands.phone.change_phone_command import ChangePhoneCommand
+from src.assistant.commands.phone.add_phone_command import AddPhoneCommand
+from src.assistant.commands.hello_command import HelloCommand
+from src.assistant.commands.close_command import CloseCommand
 from src.assistant.commands.contact.add_contact_command import AddContactCommand
 from src.assistant.commands.note.add_note_command import AddNoteCommand
 from src.assistant.commands.note.add_tag_command import AddTagCommand
@@ -15,8 +26,8 @@ from src.response.table_response import TableResponse
 def help_command():
     commands_info = [
         ["Command", "Parameters", "Description"],
-        ["close, exit", "", "Exit the bot"],
-        ["hello", "", "Say hello"],
+        [CloseCommand.name, CloseCommand.signature, CloseCommand.description],
+        [HelloCommand.name, HelloCommand.signature, HelloCommand.description],
         ["add_address", "[Name] [Address]", "Add address to contact"],
         ["change_address", "[Name] [Address]", "Change contact address"],
         ["delete_address", "[Name] [Address]", "Delete contact address"],
@@ -26,20 +37,20 @@ def help_command():
         ["get_all_birthdays", "", "Get all birthdays"],
         ["get_birthday", "[Name] [Birthday]", "Get contact birthday"],
         [AddContactCommand.name, AddContactCommand.signature, AddContactCommand.description],
-        ["delete_contact", "[Name]", "Delete a contact"],
-        ["get_all_contacts", "", "Get all contacts"],
-        ["get_contact", "[Name]", "Get contact details"],
-        ["add_email", "[Name] [Email]", "Add email to contact"],
-        ["change_email", "[Name] [Email]", "Change contact email"],
-        ["delete_email", "[Name] [Email]", "Delete contact email"],
+        [DeleteContactCommand.name, DeleteContactCommand.signature, DeleteContactCommand.description],
+        [GetAllContactsCommand.name, GetAllContactsCommand.signature, GetAllContactsCommand.description],
+        [GetContactCommand.name, GetContactCommand.signature, GetContactCommand.description],
+        [AddEmailCommand.name, AddEmailCommand.signature, AddEmailCommand.description],
+        [ChangeEmailCommand.name, ChangeEmailCommand.signature, ChangeEmailCommand.description],
+        [DeleteEmailCommand.name, DeleteEmailCommand.signature, DeleteEmailCommand.description],
         [AddNoteCommand.name, AddNoteCommand.signature, AddNoteCommand.description],
         [ChangeNoteCommand.name, ChangeNoteCommand.signature, ChangeNoteCommand.description],
         [DeleteNoteCommand.name, DeleteNoteCommand.signature, DeleteNoteCommand.description],
         [GetAllNotesCommand.name, GetAllNotesCommand.signature, GetAllNotesCommand.description],
         [GetNoteCommand.name, GetNoteCommand.signature, GetNoteCommand.description],
-        ["add_phone", "[Name] [Phone]", "Add phone to contact"],
-        ["change_phone", "[Name] [Phone]", "Change contact phone"],
-        ["delete_phone", "[Name] [Phone]", "Delete contact phone"],
+        [AddPhoneCommand.name, AddPhoneCommand.signature, AddPhoneCommand.description],
+        [ChangePhoneCommand.name, ChangePhoneCommand.signature, ChangePhoneCommand.description],
+        [DeletePhoneCommand.name, DeletePhoneCommand.signature, DeletePhoneCommand.description],
         [AddTagCommand.name, AddTagCommand.signature, AddTagCommand.description],
         [DeleteTagCommand.name, DeleteTagCommand.signature, DeleteTagCommand.description],
         [GetTagCommand.name, GetTagCommand.signature, GetTagCommand.description],

@@ -12,15 +12,15 @@ from src.assistant.commands.birthday import get_all_birthdays_command, get_birth
 from src.assistant.commands.birthday.add_birthday_command import add_birthday_command
 from src.assistant.commands.birthday.change_birthday_command import change_birthday_command
 from src.assistant.commands.birthday.delete_birthday_command import delete_birthday_command
-from src.assistant.commands.close_command import close_command
+from src.assistant.commands.close_command import CloseCommand
 from src.assistant.commands.contact.add_contact_command import AddContactCommand
-from src.assistant.commands.contact.delete_contact_command import delete_contact_command
-from src.assistant.commands.contact.get_all_contacts_command import get_all_contacts_command
-from src.assistant.commands.contact.get_contact_command import get_contact_command
-from src.assistant.commands.email.add_email_command import add_email_command
-from src.assistant.commands.email.change_email_command import change_email_command
-from src.assistant.commands.email.delete_email_command import delete_email_command
-from src.assistant.commands.hello_command import hello_command
+from src.assistant.commands.contact.delete_contact_command import DeleteContactCommand
+from src.assistant.commands.contact.get_all_contacts_command import GetAllContactsCommand
+from src.assistant.commands.contact.get_contact_command import GetContactCommand
+from src.assistant.commands.email.add_email_command import AddEmailCommand
+from src.assistant.commands.email.change_email_command import ChangeEmailCommand
+from src.assistant.commands.email.delete_email_command import DeleteEmailCommand
+from src.assistant.commands.hello_command import HelloCommand
 from src.assistant.commands.help.help_command import help_command
 from src.assistant.commands.note.add_note_command import AddNoteCommand
 from src.assistant.commands.note.add_tag_command import AddTagCommand
@@ -31,17 +31,17 @@ from src.assistant.commands.note.get_all_notes_command import GetAllNotesCommand
 from src.assistant.commands.note.get_note_command import GetNoteCommand
 from src.assistant.commands.note.get_tag_command import GetTagCommand
 from src.assistant.commands.note.sort_by_tags_command import SortByTagsCommand
-from src.assistant.commands.phone.add_phone_command import add_phone_command
-from src.assistant.commands.phone.change_phone_command import change_phone_command
-from src.assistant.commands.phone.delete_phone_command import delete_phone_command
+from src.assistant.commands.phone.add_phone_command import AddPhoneCommand
+from src.assistant.commands.phone.change_phone_command import ChangePhoneCommand
+from src.assistant.commands.phone.delete_phone_command import DeletePhoneCommand
 from src.models.contact_book.contact_book import ContactBook
 from src.models.notebook.notebook import Notebook
 from src.response.table_response import TableResponse
 
 commands = {
-    "close": close_command,
-    "exit": close_command,
-    "hello": hello_command,
+    CloseCommand.name[0]: CloseCommand,
+    CloseCommand.name[1]: CloseCommand,
+    HelloCommand.name: HelloCommand,
     "add_address": add_address_command,
     "change_address": change_address_command,
     "delete_address": delete_address_command,
@@ -51,20 +51,20 @@ commands = {
     "get_all_birthdays": get_all_birthdays_command,
     "get_birthday": get_birthday_command,
     AddContactCommand.name: AddContactCommand,
-    "delete_contact": delete_contact_command,
-    "get_all_contacts": get_all_contacts_command,
-    "get_contact": get_contact_command,
-    "add_email": add_email_command,
-    "change_email": change_email_command,
-    "delete_email": delete_email_command,
+    DeleteContactCommand.name: DeleteContactCommand,
+    GetAllContactsCommand.name: GetAllContactsCommand,
+    GetContactCommand.name: GetContactCommand,
+    AddEmailCommand.name: AddEmailCommand,
+    ChangeEmailCommand.name: ChangeEmailCommand,
+    DeleteEmailCommand.name: DeleteEmailCommand,
     AddNoteCommand.name: AddNoteCommand,
     ChangeNoteCommand.name: ChangeNoteCommand,
     DeleteNoteCommand.name: DeleteNoteCommand,
     GetAllNotesCommand.name: GetAllNotesCommand,
     GetNoteCommand.name: GetNoteCommand,
-    "add_phone": add_phone_command,
-    "change_phone": change_phone_command,
-    "delete_phone": delete_phone_command,
+    AddPhoneCommand.name: AddPhoneCommand,
+    ChangePhoneCommand.name: ChangePhoneCommand,
+    DeletePhoneCommand.name: DeletePhoneCommand,
     AddTagCommand.name: AddTagCommand,
     DeleteTagCommand.name: DeleteTagCommand,
     GetTagCommand.name: GetTagCommand,
