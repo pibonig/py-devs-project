@@ -6,13 +6,13 @@ def input_error(func):
     def wrapper(*args, **kwargs):
         try:
             return func(*args, **kwargs)
-        except KeyError:
-            return "Contact not found. Please provide a valid name."
-        except IndexError:
-            return "Please provide the correct number of arguments."
+        except KeyError as key_error:
+            return f"KeyError: {key_error}"
+        except IndexError as index_error:
+            return f"IndexError: {index_error}"
         except ValueError as value_error:
-            return str(value_error)
+            return f"ValueError: {value_error}"
         except Exception as error:
-            return str(error)
+            return f"An error occurred: {error}"
 
     return wrapper
