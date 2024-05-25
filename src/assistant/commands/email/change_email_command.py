@@ -13,7 +13,7 @@ class ChangeEmailCommand:
         if len(args) < 2:
             raise InvalidCommandParamsException(self)
         
-        name, email = args
+        name, email, *_ = args
         record = contact_book.get_contact(name)
         
         if record is None:

@@ -21,15 +21,15 @@ class Contact:
 
     def delete_phone(self, phone: Phone):
         for contact_phone in self.phones:
-            if str(contact_phone) == phone:
+            if str(contact_phone) == str(phone):
                 self.phones.remove(contact_phone)
                 return
         raise ValueError("Phone number not found")
 
     def edit_phone(self, old_phone: Phone, new_phone: Phone):
         for phone in self.phones:
-            if str(phone) == old_phone:
-                phone.value = new_phone
+            if str(phone) == str(old_phone):
+                phone.value = new_phone.value
                 return
         raise ValueError("Phone number not found")
 
