@@ -13,11 +13,4 @@ class GetAllNotesCommand:
         if args:
             raise InvalidCommandParamsException(self)
 
-        notes = notebook.list_notes()
-        if isinstance(notes, str):
-            return notes
-        elif not notes:
-            raise ValueError("No notes available")
-        else:
-            notes_content = "\n".join(str(note) for note in notes)
-            return notes_content
+        return repr(notebook)
