@@ -1,7 +1,8 @@
-from src.decorators import input_error
-from src.models.notebook.notebook import Notebook
-from src.exceptions.invalid_command_params_exception import InvalidCommandParamsException
 from colorama import Fore
+
+from src.decorators import input_error
+from src.exceptions.invalid_command_params_exception import InvalidCommandParamsException
+from src.models.notebook.notebook import Notebook
 
 
 class ChangeTagCommand:

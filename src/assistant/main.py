@@ -9,11 +9,11 @@ from lib.storage import Storage
 from src.assistant.commands.address.add_address_command import AddAddressCommand
 from src.assistant.commands.address.change_address_command import ChangeAddressCommand
 from src.assistant.commands.address.delete_address_command import DeleteAddressCommand
-from src.assistant.commands.birthday.get_all_birthdays_command import GetAllBirthdaysCommand
-from src.assistant.commands.birthday.get_birthday_command import GetBirthdaysCommand
 from src.assistant.commands.birthday.add_birthday_command import AddBirthdayCommand
 from src.assistant.commands.birthday.change_birthday_command import ChangeBirthdayCommand
 from src.assistant.commands.birthday.delete_birthday_command import DeleteBirthdayCommand
+from src.assistant.commands.birthday.get_all_birthdays_command import GetAllBirthdaysCommand
+from src.assistant.commands.birthday.get_birthday_command import GetBirthdaysCommand
 from src.assistant.commands.close_command import CloseCommand
 from src.assistant.commands.contact.add_contact_command import AddContactCommand
 from src.assistant.commands.contact.delete_contact_command import DeleteContactCommand
