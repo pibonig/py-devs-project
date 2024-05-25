@@ -19,6 +19,6 @@ class DeleteNoteCommand:
         deleted_note = notebook.delete_note_by_title(note_title)
 
         if deleted_note:
-            return Fore.GREEN + f"Note deleted: {deleted_note}"
+            return Fore.GREEN + f"Note deleted: {deleted_note.title}"
         else:
             raise KeyError(f"Note with title '{note_title}' not found")
