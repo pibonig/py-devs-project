@@ -31,40 +31,46 @@ from src.assistant.commands.birthday.get_birthday_command import GetBirthdaysCom
 from src.response.table_response import TableResponse
 
 
-def help_command():
-    commands_info = [
-        ["Command", "Parameters", "Description"],
-        [CloseCommand.name, CloseCommand.signature, CloseCommand.description],
-        [HelloCommand.name, HelloCommand.signature, HelloCommand.description],
-        [AddAddressCommand.name, AddAddressCommand.signature, AddAddressCommand.description],
-        [ChangeAddressCommand.name, ChangeAddressCommand.signature, ChangeAddressCommand.description],
-        [DeleteAddressCommand.name, DeleteAddressCommand.signature, DeleteAddressCommand.description],
-        [AddBirthdayCommand.name, AddBirthdayCommand.signature, AddBirthdayCommand.description],
-        [ChangeBirthdayCommand.name, ChangeBirthdayCommand.signature, ChangeBirthdayCommand.description],
-        [DeleteBirthdayCommand.name, DeleteBirthdayCommand.signature, DeleteBirthdayCommand.description],
-        [GetAllBirthdaysCommand.name, GetAllBirthdaysCommand.signature, GetAllBirthdaysCommand.description],
-        [GetBirthdaysCommand.name, GetBirthdaysCommand.signature, GetBirthdaysCommand.description],
-        [AddContactCommand.name, AddContactCommand.signature, AddContactCommand.description],
-        [DeleteContactCommand.name, DeleteContactCommand.signature, DeleteContactCommand.description],
-        [GetAllContactsCommand.name, GetAllContactsCommand.signature, GetAllContactsCommand.description],
-        [GetContactCommand.name, GetContactCommand.signature, GetContactCommand.description],
-        [AddEmailCommand.name, AddEmailCommand.signature, AddEmailCommand.description],
-        [ChangeEmailCommand.name, ChangeEmailCommand.signature, ChangeEmailCommand.description],
-        [DeleteEmailCommand.name, DeleteEmailCommand.signature, DeleteEmailCommand.description],
-        [AddNoteCommand.name, AddNoteCommand.signature, AddNoteCommand.description],
-        [ChangeNoteCommand.name, ChangeNoteCommand.signature, ChangeNoteCommand.description],
-        [DeleteNoteCommand.name, DeleteNoteCommand.signature, DeleteNoteCommand.description],
-        [GetAllNotesCommand.name, GetAllNotesCommand.signature, GetAllNotesCommand.description],
-        [GetNoteCommand.name, GetNoteCommand.signature, GetNoteCommand.description],
-        [AddPhoneCommand.name, AddPhoneCommand.signature, AddPhoneCommand.description],
-        [ChangePhoneCommand.name, ChangePhoneCommand.signature, ChangePhoneCommand.description],
-        [DeletePhoneCommand.name, DeletePhoneCommand.signature, DeletePhoneCommand.description],
-        [AddTagCommand.name, AddTagCommand.signature, AddTagCommand.description],
-        [DeleteTagCommand.name, DeleteTagCommand.signature, DeleteTagCommand.description],
-        [GetTagCommand.name, GetTagCommand.signature, GetTagCommand.description],
-        [SortByTagsCommand.name, SortByTagsCommand.signature, SortByTagsCommand.description],
-    ]
 
-    headers = commands_info[0]
-    body = commands_info[1:]
-    return TableResponse(headers, body)
+class HelpCommand:
+    name = "help"
+    signature = ""
+    description = "Show available commands and their descriptions"
+
+    def execute(self):
+        commands_info = [
+            ["Command", "Parameters", "Description"],
+            [AddAddressCommand.name, AddAddressCommand.signature, AddAddressCommand.description],
+            [AddBirthdayCommand.name, AddBirthdayCommand.signature, AddBirthdayCommand.description],
+            [AddContactCommand.name, AddContactCommand.signature, AddContactCommand.description],
+            [AddEmailCommand.name, AddEmailCommand.signature, AddEmailCommand.description],
+            [AddNoteCommand.name, AddNoteCommand.signature, AddNoteCommand.description],
+            [AddPhoneCommand.name, AddPhoneCommand.signature, AddPhoneCommand.description],
+            [AddTagCommand.name, AddTagCommand.signature, AddTagCommand.description],
+            [ChangeAddressCommand.name, ChangeAddressCommand.signature, ChangeAddressCommand.description],
+            [ChangeBirthdayCommand.name, ChangeBirthdayCommand.signature, ChangeBirthdayCommand.description],
+            [ChangeEmailCommand.name, ChangeEmailCommand.signature, ChangeEmailCommand.description],
+            [ChangeNoteCommand.name, ChangeNoteCommand.signature, ChangeNoteCommand.description],
+            [ChangePhoneCommand.name, ChangePhoneCommand.signature, ChangePhoneCommand.description],
+            [CloseCommand.name, CloseCommand.signature, CloseCommand.description],
+            [DeleteAddressCommand.name, DeleteAddressCommand.signature, DeleteAddressCommand.description],
+            [DeleteBirthdayCommand.name, DeleteBirthdayCommand.signature, DeleteBirthdayCommand.description],
+            [DeleteContactCommand.name, DeleteContactCommand.signature, DeleteContactCommand.description],
+            [DeleteEmailCommand.name, DeleteEmailCommand.signature, DeleteEmailCommand.description],
+            [DeleteNoteCommand.name, DeleteNoteCommand.signature, DeleteNoteCommand.description],
+            [DeletePhoneCommand.name, DeletePhoneCommand.signature, DeletePhoneCommand.description],
+            [DeleteTagCommand.name, DeleteTagCommand.signature, DeleteTagCommand.description],
+            [GetAllBirthdaysCommand.name, GetAllBirthdaysCommand.signature, GetAllBirthdaysCommand.description],
+            [GetAllContactsCommand.name, GetAllContactsCommand.signature, GetAllContactsCommand.description],
+            [GetAllNotesCommand.name, GetAllNotesCommand.signature, GetAllNotesCommand.description],
+            [GetBirthdaysCommand.name, GetBirthdaysCommand.signature, GetBirthdaysCommand.description],
+            [GetContactCommand.name, GetContactCommand.signature, GetContactCommand.description],
+            [GetNoteCommand.name, GetNoteCommand.signature, GetNoteCommand.description],
+            [GetTagCommand.name, GetTagCommand.signature, GetTagCommand.description],
+            [HelloCommand.name, HelloCommand.signature, HelloCommand.description],
+            [SortByTagsCommand.name, SortByTagsCommand.signature, SortByTagsCommand.description],
+        ]
+
+        headers = commands_info[0]
+        body = commands_info[1:]
+        return TableResponse(headers, body)
