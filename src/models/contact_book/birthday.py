@@ -1,6 +1,7 @@
 from datetime import datetime
-
 from src.models.field import Field
+
+from colorama import Fore
 
 
 class Birthday(Field):

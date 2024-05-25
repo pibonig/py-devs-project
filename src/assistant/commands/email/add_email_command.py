@@ -2,6 +2,7 @@ from src.exceptions.invalid_command_params_exception import InvalidCommandParams
 from src.decorators import input_error
 from src.models.contact_book.contact_book import ContactBook
 from src.models.contact_book.email import Email
+from colorama import Fore
 
 
 class AddEmailCommand:
@@ -22,4 +23,4 @@ class AddEmailCommand:
         else:
             email = Email(email)
             contact.set_email(email)
-            return "Email has been added to the contact"
+            return Fore.GREEN + "Email has been added to the contact"

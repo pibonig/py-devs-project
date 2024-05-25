@@ -1,7 +1,7 @@
 from src.decorators import input_error
 from src.models.notebook.notebook import Notebook
 from src.exceptions.invalid_command_params_exception import InvalidCommandParamsException
-
+from colorama import Fore
 
 class DeleteTagCommand:
     name = "delete_tag"
@@ -19,7 +19,7 @@ class DeleteTagCommand:
         note = notebook.get_note_by_title(note_title)
         if note:
             if note.delete_tag(tag):
-                return f"Tag '{tag}' deleted from the note '{note_title}'."
+                return Fore.GREEN + f"Tag '{tag}' deleted from the note '{note_title}'."
             else:
                 raise ValueError(f"Tag '{tag}' not found in the note '{note_title}'.")
         else:

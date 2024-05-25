@@ -6,6 +6,7 @@ from src.models.contact_book.email import Email
 from src.models.contact_book.name import Name
 from src.models.contact_book.phone import Phone
 
+from colorama import Fore
 
 class Contact:
 

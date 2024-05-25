@@ -1,6 +1,7 @@
 from src.decorators import input_error
 from src.models.notebook.notebook import Notebook
 from src.exceptions.invalid_command_params_exception import InvalidCommandParamsException
+from colorama import Fore
 
 
 class ChangeTagCommand:
@@ -20,7 +21,7 @@ class ChangeTagCommand:
             if old_tag in note.tags:
                 note.delete_tag(old_tag)
                 note.add_tag(new_tag)
-                return f"Tag '{old_tag}' edited to '{new_tag}' in the note '{note_title}'."
+                return Fore.GREEN + f"Tag '{old_tag}' edited to '{new_tag}' in the note '{note_title}'."
             else:
                 raise ValueError(f"Tag '{old_tag}' not found in the note '{note_title}'.")
         else:

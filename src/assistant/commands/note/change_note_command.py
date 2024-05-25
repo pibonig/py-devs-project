@@ -1,7 +1,7 @@
 from src.decorators import input_error
 from src.models.notebook.notebook import Notebook
 from src.exceptions.invalid_command_params_exception import InvalidCommandParamsException
-
+from colorama import Fore
 
 class ChangeNoteCommand:
     name = "change_note"
@@ -19,6 +19,6 @@ class ChangeNoteCommand:
 
         if note:
             note.change(new_content)
-            return f"Note '{note_title}' updated to: {new_content}"
+            return Fore.GREEN + f"Note '{note_title}' updated to: {new_content}"
         else:
             raise KeyError(f"Note with title '{note_title}' not found")

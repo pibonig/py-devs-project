@@ -2,6 +2,7 @@ from src.exceptions.invalid_command_params_exception import InvalidCommandParams
 from src.decorators import input_error
 from src.models.contact_book.contact_book import ContactBook
 from src.models.contact_book.email import Email
+from colorama import Fore
 
 
 class ChangeEmailCommand:
@@ -22,4 +23,4 @@ class ChangeEmailCommand:
         else:
             email = Email(email)
             record.set_email(email)
-            return "Email has been changed in the contact"
+            return Fore.GREEN + "Email has been changed in the contact"

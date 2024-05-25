@@ -3,7 +3,7 @@ from src.decorators import input_error
 from src.exceptions.invalid_command_params_exception import InvalidCommandParamsException
 from src.models.contact_book.contact import Contact
 from src.models.contact_book.contact_book import ContactBook
-
+from colorama import Fore
 
 class AddContactCommand:
     name = "add_contact"
@@ -24,4 +24,4 @@ class AddContactCommand:
 
         phone = Phone(phone)
         contact.add_phone(phone)
-        return "Contact updated."
+        return Fore.GREEN + "Contact added."

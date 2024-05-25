@@ -1,6 +1,7 @@
 from src.exceptions.invalid_command_params_exception import InvalidCommandParamsException
 from src.decorators import input_error
 from src.models.contact_book.contact_book import ContactBook
+from colorama import Fore
 
 
 class DeleteEmailCommand:
@@ -19,4 +20,4 @@ class DeleteEmailCommand:
             raise KeyError
         else:
             contact.delete_email()
-            return "Email has been deleted in the contact"
+            return Fore.GREEN + "Email has been deleted in the contact"

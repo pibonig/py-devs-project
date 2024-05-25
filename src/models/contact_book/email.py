@@ -1,6 +1,6 @@
 import re
-
 from src.models.field import Field
+from colorama import Fore
 
 
 class Email(Field):

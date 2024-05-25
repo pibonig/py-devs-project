@@ -1,7 +1,7 @@
 from src.decorators import input_error
 from src.models.contact_book.contact_book import ContactBook
 from src.exceptions.invalid_command_params_exception import InvalidCommandParamsException
-
+from colorama import Fore
 
 class DeleteBirthdayCommand:
     name = "delete_birthday"
@@ -18,4 +18,4 @@ class DeleteBirthdayCommand:
             raise KeyError
         else:
             contact.delete_birthday()
-            return f"Birthday has been deleted for the contact '{name}'"
+            return Fore.GREEN + f"Birthday has been deleted for the contact '{name}'"
