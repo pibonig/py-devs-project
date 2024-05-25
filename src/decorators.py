@@ -7,12 +7,12 @@ def input_error(func):
         try:
             return func(*args, **kwargs)
         except KeyError as key_error:
-            return f"KeyError: {key_error}"
+            return Fore.RED + f"KeyError: {key_error}"
         except IndexError as index_error:
-            return f"IndexError: {index_error}"
+            return Fore.RED + f"IndexError: {index_error}"
         except ValueError as value_error:
-            return f"ValueError: {value_error}"
+            return Fore.RED + f"ValueError: {value_error}"
         except Exception as error:
-            return f"An error occurred: {error}"
+            return Fore.RED + f"An error occurred: {error}"
 
     return wrapper

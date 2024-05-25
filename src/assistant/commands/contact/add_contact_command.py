@@ -24,4 +24,4 @@ class AddContactCommand:
 
         phone = Phone(phone)
         contact.add_phone(phone)
-        return Fore.GREEN + "Contact updated."
+        return Fore.GREEN + "Contact added."

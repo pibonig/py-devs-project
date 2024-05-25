@@ -1,7 +1,7 @@
 from src.decorators import input_error
 from src.models.notebook.notebook import Notebook
 from src.exceptions.invalid_command_params_exception import InvalidCommandParamsException
-
+from colorama import Fore
 
 class DeleteNoteCommand:
     name = "delete_note"
@@ -17,6 +17,6 @@ class DeleteNoteCommand:
         deleted_note = notebook.delete_note_by_title(note_title)
 
         if deleted_note:
-            return f"Note deleted: {deleted_note}"
+            return Fore.GREEN + f"Note deleted: {deleted_note}"
         else:
             raise KeyError(f"Note with title '{note_title}' not found")

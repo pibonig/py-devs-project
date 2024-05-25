@@ -16,7 +16,7 @@ class GetBirthdaysCommand:
             raise InvalidCommandParamsException(self)
         days = int(args[0])
         if days < 0:
-            raise ValueError(Fore.RED + "Number of days must be a positive integer.")
+            raise ValueError("Number of days must be a positive integer.")
         
         if not contact_book.data:
             return "Address book is empty."
@@ -28,4 +28,4 @@ class GetBirthdaysCommand:
                     result += f'Name: {name}, Birthday: {birthday}' + "\n"
                 return result
             else:
-                raise KeyError(Fore.RED + "There are no birthdays in the period")
+                raise KeyError("There are no birthdays in the period")

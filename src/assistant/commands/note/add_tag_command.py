@@ -1,7 +1,7 @@
 from src.decorators import input_error
 from src.models.notebook.notebook import Notebook
 from src.exceptions.invalid_command_params_exception import InvalidCommandParamsException
-
+from colorama import Fore
 
 class AddTagCommand:
     name = "add_tag"
@@ -19,6 +19,6 @@ class AddTagCommand:
         note = notebook.get_note_by_title(note_title)
         if note:
             note.add_tag(tag)
-            return f"Tag '{tag}' added to the note '{note_title}'."
+            return Fore.GREEN + f"Tag '{tag}' added to the note '{note_title}'."
         else:
             raise KeyError(f"Note with title '{note_title}' not found")
