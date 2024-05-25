@@ -22,7 +22,7 @@ from src.assistant.commands.email.add_email_command import AddEmailCommand
 from src.assistant.commands.email.change_email_command import ChangeEmailCommand
 from src.assistant.commands.email.delete_email_command import DeleteEmailCommand
 from src.assistant.commands.hello_command import HelloCommand
-from src.assistant.commands.help.help_command import help_command
+from src.assistant.commands.help.help_command import HelpCommand
 from src.assistant.commands.note.add_note_command import AddNoteCommand
 from src.assistant.commands.note.add_tag_command import AddTagCommand
 from src.assistant.commands.note.change_note_command import ChangeNoteCommand
@@ -70,7 +70,7 @@ commands = {
     DeleteTagCommand.name: DeleteTagCommand,
     GetTagCommand.name: GetTagCommand,
     SortByTagsCommand.name: SortByTagsCommand,
-    "help": help_command
+    HelpCommand.name: HelpCommand
 }
 
 commands_list = sorted(list(commands.keys()))
