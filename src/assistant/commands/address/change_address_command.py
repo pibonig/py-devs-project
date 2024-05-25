@@ -4,6 +4,7 @@ from src.models.contact_book.address import Address
 from src.models.contact_book.contact_book import ContactBook
 from colorama import Fore
 
+
 class ChangeAddressCommand:
     name = "change_address"
     signature = "<name> <address>"
@@ -13,7 +14,7 @@ class ChangeAddressCommand:
     def execute(self, args: list, contact_book: ContactBook):
         if len(args) < 2:
             raise InvalidCommandParamsException(self)
-        
+
         name, address_value, *_ = args
         contact = contact_book.get_contact(name)
 

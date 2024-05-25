@@ -3,6 +3,7 @@ from src.decorators import input_error
 from src.models.contact_book.contact_book import ContactBook
 from colorama import Fore
 
+
 class DeleteEmailCommand:
     name = "delete_email"
     signature = "<name>"
@@ -12,7 +13,7 @@ class DeleteEmailCommand:
     def execute(self, args: list, contact_book: ContactBook):
         if len(args) < 1:
             raise InvalidCommandParamsException(self)
-        
+
         name, *_ = args
         contact = contact_book.get_contact(name)
         if contact is None:

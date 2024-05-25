@@ -8,9 +8,8 @@ class SortByTagsCommand:
     signature = "<tag>"
     description = "Sort notes by a specific tag"
 
-
     @input_error
-    def execute(self,args: list, notebook: Notebook):
+    def execute(self, args: list, notebook: Notebook):
         if not args:
             raise InvalidCommandParamsException(self)
 

@@ -1,6 +1,7 @@
 from src.decorators import input_error
 from colorama import Fore
 
+
 class HelloCommand:
     name = "hello"
     signature = ""
