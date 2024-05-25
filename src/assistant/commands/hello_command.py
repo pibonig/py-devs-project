@@ -1,5 +1,6 @@
-from src.decorators import input_error
 from colorama import Fore
+
+from src.decorators import input_error
 
 
 class HelloCommand:

@@ -1,7 +1,7 @@
 from src.decorators import input_error
-from src.models.contact_book.contact_book import ContactBook
 from src.exceptions.invalid_command_params_exception import InvalidCommandParamsException
-from colorama import Fore
+from src.models.contact_book.contact_book import ContactBook
+
 
 class GetBirthdaysCommand:
     name = "get_birthdays"

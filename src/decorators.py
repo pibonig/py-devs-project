@@ -1,5 +1,7 @@
 from functools import wraps
+
 from colorama import Fore
+
 
 def input_error(func):
     @wraps(func)
