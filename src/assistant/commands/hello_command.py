@@ -1,5 +1,6 @@
 from src.decorators import input_error
 
+
 class HelloCommand:
     name = "hello"
     signature = ""

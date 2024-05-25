@@ -1,10 +1,10 @@
 ContactBook
-    Contact[]
-        Name
-        Email
-        Address
-        Phone[]
-        Birthday
+Contact[]
+Name
+Email
+Address
+Phone[]
+Birthday
 
 Notebook
-    Note[]
+Note[]

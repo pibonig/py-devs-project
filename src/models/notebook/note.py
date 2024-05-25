@@ -7,7 +7,7 @@ class Note(Field):
         super().__init__(content)
         self.title = title
         self.tags = []
-    
+
     def change(self, new_content: str):
         self.value = new_content
 
