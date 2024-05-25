@@ -27,6 +27,7 @@ from src.assistant.commands.help.help_command import help_command
 from src.assistant.commands.note.add_note_command import AddNoteCommand
 from src.assistant.commands.note.add_tag_command import AddTagCommand
 from src.assistant.commands.note.change_note_command import ChangeNoteCommand
+from src.assistant.commands.note.change_tag_command import ChangeTagCommand
 from src.assistant.commands.note.delete_note_command import DeleteNoteCommand
 from src.assistant.commands.note.delete_tag_command import DeleteTagCommand
 from src.assistant.commands.note.get_all_notes_command import GetAllNotesCommand
@@ -68,6 +69,7 @@ commands = {
     ChangePhoneCommand.name: ChangePhoneCommand,
     DeletePhoneCommand.name: DeletePhoneCommand,
     AddTagCommand.name: AddTagCommand,
+    ChangeTagCommand.name: ChangeTagCommand,
     DeleteTagCommand.name: DeleteTagCommand,
     GetTagCommand.name: GetTagCommand,
     SortByTagsCommand.name: SortByTagsCommand,
