@@ -126,6 +126,7 @@ def start():
                 print(response)
             elif response is False:
                 Storage.save(ContactBook.pickle_file, contact_book)
+                Storage.save(Notebook.pickle_file, notebook)
                 print(Fore.YELLOW + "Good bye!" + Style.RESET_ALL)
                 sys.exit(1)
         else:
