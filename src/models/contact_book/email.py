@@ -15,4 +15,4 @@ class Email(Field):
         if match:
             self.__value = value
         else:
-            raise ValueError(Fore.RED + "Invalid email format. Try example@example.example")
+            raise ValueError("Invalid email format. Try example@example.example")

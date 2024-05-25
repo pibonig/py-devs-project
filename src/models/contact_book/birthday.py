@@ -14,7 +14,7 @@ class Birthday(Field):
         try:
             self.__value = datetime.strptime(value, '%d.%m.%Y')
         except ValueError:
-            raise ValueError(Fore.RED + "Invalid date format. Use DD.MM.YYYY")
+            raise ValueError("Invalid date format. Use DD.MM.YYYY")
 
     def __repr__(self):
         return self.__value.strftime("%d.%m.%Y")

@@ -25,14 +25,14 @@ class Contact:
             if str(contact_phone) == str(phone):
                 self.phones.remove(contact_phone)
                 return
-        raise ValueError(Fore.RED + "Phone number not found")
+        raise ValueError("Phone number not found")
 
     def edit_phone(self, old_phone: Phone, new_phone: Phone):
         for phone in self.phones:
             if str(phone) == str(old_phone):
                 phone.value = new_phone.value
                 return
-        raise ValueError(Fore.RED + "Phone number not found")
+        raise ValueError("Phone number not found")
 
     def get_phones(self):
         return self.phones
