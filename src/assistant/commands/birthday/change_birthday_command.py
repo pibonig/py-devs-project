@@ -10,7 +10,7 @@ class ChangeBirthdayCommand:
     description = "Change the birthday of a contact"
 
     @input_error
-    def execute(self,args: list, contact_book: ContactBook):
+    def execute(self, args: list, contact_book: ContactBook):
         if len(args) < 2:
             raise InvalidCommandParamsException(self)
         name, date = args

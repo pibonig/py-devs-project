@@ -9,7 +9,7 @@ class DeleteBirthdayCommand:
     description = "Delete the birthday of a contact"
 
     @input_error
-    def execute(self,args: list, contact_book: ContactBook):
+    def execute(self, args: list, contact_book: ContactBook):
         if len(args) < 1:
             raise InvalidCommandParamsException(self)
         name = args
