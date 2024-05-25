@@ -12,7 +12,7 @@ from src.assistant.commands.birthday import get_all_birthdays_command, get_birth
 from src.assistant.commands.birthday.add_birthday_command import add_birthday_command
 from src.assistant.commands.birthday.change_birthday_command import change_birthday_command
 from src.assistant.commands.birthday.delete_birthday_command import delete_birthday_command
-from src.assistant.commands.close_command import close_command
+from src.assistant.commands.close_command import CloseCommand
 from src.assistant.commands.contact.add_contact_command import AddContactCommand
 from src.assistant.commands.contact.delete_contact_command import delete_contact_command
 from src.assistant.commands.contact.get_all_contacts_command import get_all_contacts_command
@@ -20,7 +20,7 @@ from src.assistant.commands.contact.get_contact_command import get_contact_comma
 from src.assistant.commands.email.add_email_command import add_email_command
 from src.assistant.commands.email.change_email_command import change_email_command
 from src.assistant.commands.email.delete_email_command import delete_email_command
-from src.assistant.commands.hello_command import hello_command
+from src.assistant.commands.hello_command import HelloCommand
 from src.assistant.commands.help.help_command import help_command
 from src.assistant.commands.note.add_note_command import add_note_command
 from src.assistant.commands.note.add_tag_command import add_tag_command
@@ -39,9 +39,9 @@ from src.models.notebook.notebook import Notebook
 from src.response.table_response import TableResponse
 
 commands = {
-    "close": close_command,
-    "exit": close_command,
-    "hello": hello_command,
+    CloseCommand.name[0]: CloseCommand,
+    CloseCommand.name[1]: CloseCommand,
+    HelloCommand.name: HelloCommand,
     "add_address": add_address_command,
     "change_address": change_address_command,
     "delete_address": delete_address_command,
