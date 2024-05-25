@@ -13,7 +13,7 @@ class ChangePhoneCommand:
         if len(args) < 3:
             raise InvalidCommandParamsException(self)
         
-        name, old_phone, new_phone = args
+        name, old_phone, new_phone, *_ = args
         contact = contact_book.get_contact(name)
 
         if contact is None:
