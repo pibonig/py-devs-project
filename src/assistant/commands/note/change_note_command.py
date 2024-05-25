@@ -13,8 +13,8 @@ class ChangeNoteCommand:
             raise InvalidCommandParamsException(self)
 
         note_title = args[0]
-        new_content = ''.join(args[1:])
-        note = notebook.get_note(note_title)
+        new_content = ' '.join(args[1:])
+        note = notebook.get_note_by_title(note_title)
 
         if note:
             note.change(new_content)
