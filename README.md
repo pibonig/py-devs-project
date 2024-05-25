@@ -1,3 +1,7 @@
+# Assistant bot
+
+<img src="./img.png">
+
 **Table of Contents**
 
 - [Installation](#installation)
