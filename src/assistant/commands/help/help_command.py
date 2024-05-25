@@ -1,3 +1,6 @@
+from src.assistant.commands.address.delete_address_command import DeleteAddressCommand
+from src.assistant.commands.address.change_address_command import ChangeAddressCommand
+from src.assistant.commands.address.add_address_command import AddAddressCommand
 from src.assistant.commands.email.delete_email_command import DeleteEmailCommand
 from src.assistant.commands.email.change_email_command import ChangeEmailCommand
 from src.assistant.commands.email.add_email_command import AddEmailCommand
@@ -28,9 +31,9 @@ def help_command():
         ["Command", "Parameters", "Description"],
         [CloseCommand.name, CloseCommand.signature, CloseCommand.description],
         [HelloCommand.name, HelloCommand.signature, HelloCommand.description],
-        ["add_address", "[Name] [Address]", "Add address to contact"],
-        ["change_address", "[Name] [Address]", "Change contact address"],
-        ["delete_address", "[Name] [Address]", "Delete contact address"],
+        [AddAddressCommand.name, AddAddressCommand.signature, AddAddressCommand.description],
+        [ChangeAddressCommand.name, ChangeAddressCommand.signature, ChangeAddressCommand.description],
+        [DeleteAddressCommand.name, DeleteAddressCommand.signature, DeleteAddressCommand.description],
         ["add_birthday", "[Name] [Birthday]", "Add birthday to contact"],
         ["change_birthday", "[Name] [Birthday]", "Change contact birthday"],
         ["delete_birthday", "[Name] [Birthday]", "Delete contact birthday"],
