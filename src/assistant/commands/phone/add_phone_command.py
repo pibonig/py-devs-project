@@ -23,4 +23,4 @@ class AddPhoneCommand:
         else:
             phone = Phone(phone)
             contact.add_phone(phone)
-            return "Phone has been added to the contact"
+            return Fore.GREEN + "Phone has been added to the contact"

@@ -6,7 +6,7 @@ from colorama import Fore
 
 class DeleteAddressCommand:
     name = "delete_address"
-    signature = "<name> <address>"
+    signature = "<name>"
     description = "Delete contact address"
 
     @input_error
