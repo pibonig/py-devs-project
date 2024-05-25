@@ -4,7 +4,7 @@ from src.models.contact_book.contact_book import ContactBook
 
 class DeleteEmailCommand:
     name = "delete_email"
-    signature = "<name> <email>"
+    signature = "<name>"
     description = "Delete contact email"
 
     @input_error
@@ -12,9 +12,8 @@ class DeleteEmailCommand:
         if len(args) < 1:
             raise InvalidCommandParamsException(self)
         
-        name = args
+        name, *_ = args
         contact = contact_book.get_contact(name)
-        
         if contact is None:
             raise KeyError
         else:
