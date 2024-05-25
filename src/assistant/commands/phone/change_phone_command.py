@@ -9,7 +9,7 @@ class ChangePhoneCommand:
     description = "Change contact phone"
 
     @input_error
-    def change_phone_command(self, args: list, contact_book: ContactBook) :
+    def execute(self, args: list, contact_book: ContactBook) :
         if len(args) < 3:
             raise InvalidCommandParamsException(self)
         

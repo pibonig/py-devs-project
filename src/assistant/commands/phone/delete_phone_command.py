@@ -9,7 +9,7 @@ class DeletePhoneCommand:
     description = "Delete contact phone"
 
     @input_error
-    def delete_phone_command(self, args: list, contact_book: ContactBook):
+    def execute(self, args: list, contact_book: ContactBook):
         if len(args) < 2:
             raise InvalidCommandParamsException(self)
         
