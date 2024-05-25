@@ -23,16 +23,17 @@ class ContactBook(UserDict[Contact]):
     def get_upcoming_birthdays(self, days: int):
         headers = ["Name", "Congratulation date"]
         current_date = datetime.today().date()
-        current_timedelta = current_date + timedelta(days)
+        target_date = current_date + timedelta(days=days)
         current_year = datetime.now().year
         result = []
         for contact in self.data.values():
             if contact.birthday:
-                birthday = datetime.strptime(contact.birthday, "%d.%m.%Y")
+                birthday_date_str = contact.birthday.value.strftime("%d.%m.%Y")  # Convert Birthday object to string
+                birthday = datetime.strptime(birthday_date_str, "%d.%m.%Y")
                 birthday_date = birthday.date().replace(year=current_year)
                 if birthday_date < current_date:
                     birthday_date = birthday_date.replace(year=current_year + 1)
-                if current_date <= birthday_date <= current_timedelta:
+                if current_date <= birthday_date <= target_date:
                     row = [contact.name, birthday_date.strftime("%d.%m.%Y")]
                     result.append(row)
         result.sort(key=lambda x: datetime.strptime(x[1], "%d.%m.%Y"))
