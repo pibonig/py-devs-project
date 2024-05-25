@@ -2,6 +2,7 @@ from src.exceptions.invalid_command_params_exception import InvalidCommandParams
 from src.decorators import input_error
 from src.models.contact_book.contact_book import ContactBook
 from src.models.contact_book.phone import Phone
+from colorama import Fore
 
 class DeletePhoneCommand:
     name = "delete_phone"
@@ -21,4 +22,4 @@ class DeletePhoneCommand:
         else:
             phone = Phone(phone)
             contact.delete_phone(phone)
-            return "Phone has been delete in the contact"
+            return Fore.GREEN + "Phone has been delete in the contact"

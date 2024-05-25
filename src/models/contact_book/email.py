@@ -1,6 +1,6 @@
 import re
-
 from src.models.field import Field
+from colorama import Fore
 
 
 class Email(Field):
@@ -15,4 +15,4 @@ class Email(Field):
         if match:
             self.__value = value
         else:
-            raise ValueError("Invalid email format. Try example@example.example")
+            raise ValueError(Fore.RED + "Invalid email format. Try example@example.example")

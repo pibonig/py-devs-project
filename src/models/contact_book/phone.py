@@ -1,5 +1,5 @@
 from src.models.field import Field
-
+from colorama import Fore
 
 class Phone(Field):
     @property
@@ -9,5 +9,5 @@ class Phone(Field):
     @value.setter
     def value(self, value: str):
         if not value.isdigit() or len(value) != 10:
-            raise ValueError("The phone number must consist of 10 digits")
+            raise ValueError(Fore.RED + "The phone number must consist of 10 digits")
         self.__value = value

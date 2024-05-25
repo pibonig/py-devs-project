@@ -2,6 +2,7 @@ from src.exceptions.invalid_command_params_exception import InvalidCommandParams
 from src.decorators import input_error
 from src.models.contact_book.address import Address
 from src.models.contact_book.contact_book import ContactBook
+from colorama import Fore
 
 class AddAddressCommand:
     name = "add_address"
@@ -21,4 +22,4 @@ class AddAddressCommand:
         else:
             address = Address(address_value)
             contact.set_address(address)
-            return "Address has been added to the contact"
+            return Fore.GREEN + "Address has been added to the contact"

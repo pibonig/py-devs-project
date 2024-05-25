@@ -1,4 +1,5 @@
 from src.decorators import input_error
+from colorama import Fore
 
 class HelloCommand:
     name = "hello"
@@ -7,4 +8,4 @@ class HelloCommand:
 
     @input_error
     def execute(self):
-        return "Hello! How can I help you?"
+        return Fore.YELLOW + "Hello! How can I help you?"

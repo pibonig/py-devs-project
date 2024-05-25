@@ -1,6 +1,7 @@
 from src.exceptions.invalid_command_params_exception import InvalidCommandParamsException
 from src.decorators import input_error
 from src.models.contact_book.contact_book import ContactBook
+from colorama import Fore
 
 class DeleteContactCommand:
     name = "delete_contact"
@@ -17,6 +18,6 @@ class DeleteContactCommand:
 
         if contact:
             contact_book.delete_contact(name)
-            return "Contact has been deleted"
+            return Fore.GREEN + "Contact has been deleted"
         else:
             raise KeyError

@@ -4,6 +4,8 @@ from datetime import datetime, timedelta
 from src.models.contact_book.contact import Contact
 from src.response.table_response import TableResponse
 
+from colorama import Fore
+
 
 class ContactBook(UserDict[Contact]):
     pickle_file = 'contact_book.pickle'
@@ -18,7 +20,7 @@ class ContactBook(UserDict[Contact]):
         if name in self.data:
             self.data.pop(name)
         else:
-            raise ValueError("Contact not found.")
+            raise ValueError(Fore.RED + "Contact not found.")
 
     def get_upcoming_birthdays(self, days: int):
         headers = ["Name", "Congratulation date"]

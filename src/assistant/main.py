@@ -1,6 +1,7 @@
 import inspect
 import sys
 
+from colorama import Fore, Style
 from prompt_toolkit import prompt
 from prompt_toolkit.completion import WordCompleter
 
@@ -88,14 +89,14 @@ def start():
     notebook_loaded = Storage.load(Notebook.pickle_file)
     notebook: Notebook = notebook_loaded if notebook_loaded else Notebook()
 
-    print("Welcome to the assistant bot!")
+    print(Fore.YELLOW + "Welcome to the assistant bot!")
 
     while True:
         user_input = prompt("Enter a command: ", completer=command_completer)
         try:
             command, args = parse_input(user_input)
         except ValueError:
-            print("Input is empty.")
+            print(Fore.RED + "Input is empty.")
             continue
 
         if command in commands:
@@ -122,7 +123,7 @@ def start():
                 print(response)
             elif response is False:
                 Storage.save(ContactBook.pickle_file, contact_book)
-                print("Good bye!")
+                print(Fore.YELLOW + "Good bye!" + Style.RESET_ALL)
                 sys.exit(1)
         else:
-            print("Invalid command.")
+            print(Fore.RED + "Invalid command.")

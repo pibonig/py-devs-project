@@ -2,6 +2,7 @@ from src.exceptions.invalid_command_params_exception import InvalidCommandParams
 from src.decorators import input_error
 from src.models.contact_book.contact_book import ContactBook
 from src.models.contact_book.phone import Phone
+from colorama import Fore
 
 class AddPhoneCommand:
     name = "add_phone"
@@ -21,7 +22,7 @@ class AddPhoneCommand:
         else:
             phone = Phone(phone)
             contact.add_phone(phone)
-            return "Phone has been added to the contact"
+            return Fore.GREEN + "Phone has been added to the contact"
 
 
 

@@ -1,5 +1,5 @@
 from functools import wraps
-
+from colorama import Fore
 
 def input_error(func):
     @wraps(func)
@@ -7,9 +7,9 @@ def input_error(func):
         try:
             return func(*args, **kwargs)
         except KeyError:
-            return "Contact not found. Please provide a valid name."
+            return Fore.RED + "Contact not found. Please provide a valid name."
         except IndexError:
-            return "Please provide the correct number of arguments."
+            return Fore.RED + "Please provide the correct number of arguments."
         except ValueError as value_error:
             return str(value_error)
         except Exception as error:
