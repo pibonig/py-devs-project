@@ -9,14 +9,14 @@ class AddTagCommand:
     description = "Add tag to note"
 
     @input_error
-    def execute(self,args: list, notebook: Notebook):
+    def execute(self, args: list, notebook: Notebook):
         if len(args) < 2:
             raise InvalidCommandParamsException(self)
 
         note_title = args[0]
-        tag = args[1]
+        tag = " ".join(args[1:])
 
-        note = notebook.get_note(note_title)
+        note = notebook.get_note_by_title(note_title)
         if note:
             note.add_tag(tag)
             return f"Tag '{tag}' added to the note '{note_title}'."

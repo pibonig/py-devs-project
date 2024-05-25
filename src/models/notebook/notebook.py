@@ -31,6 +31,6 @@ class Notebook:
         return self.notes
 
     def __repr__(self):
-        body = [[note.title, note.content, ', '.join(note.tags)] for note in self.notes] if self.notes else [
+        body = [[note.title, note.value, ', '.join(note.tags)] for note in self.notes] if self.notes else [
             ["", "", ""]]
         return repr(TableResponse(headers=["Title", "Content", "Tags"], body=body))

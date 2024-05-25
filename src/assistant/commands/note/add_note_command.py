@@ -17,7 +17,7 @@ class AddNoteCommand:
             raise InvalidCommandParamsException(self)
 
         note_title = args[0]
-        note_content = ''.join(args[1:])
+        note_content = ' '.join(args[1:])
         note = Note(title=note_title, content=note_content)
         notebook.add_note(note)
         return "Note added"
