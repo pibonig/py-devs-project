@@ -16,6 +16,6 @@ class GetContactCommand:
         contact = contact_book.get_contact(name)
 
         if contact:
-            return contact
+            return str(contact)
         else:
             raise KeyError
