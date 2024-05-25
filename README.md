@@ -53,7 +53,7 @@ python main.py
 | hello             |                                   | Say hello                                                |
 | add_address       | \<name> \<address>                | Add address to contact                                   |
 | change_address    | \<name> \<address>                | Change contact address                                   |
-| delete_address    | \<name> \<address>                | Delete contact address                                   |
+| delete_address    | \<name>                           | Delete contact address                                   |
 | add_birthday      | \<name> \<date>                   | Add a birthday to a contact                              |
 | change_birthday   | \<name> \<date>                   | Change the birthday of a contact                         |
 | delete_birthday   | \<name>                           | Delete the birthday of a contact                         |
