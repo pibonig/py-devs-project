@@ -15,7 +15,7 @@ class DeleteNoteCommand:
             raise InvalidCommandParamsException(self)
 
         note_title = args[0]
-        deleted_note = notebook.delete_note(note_title)
+        deleted_note = notebook.delete_note_by_title(note_title)
 
         if deleted_note:
             return f"Note deleted: {deleted_note}"
