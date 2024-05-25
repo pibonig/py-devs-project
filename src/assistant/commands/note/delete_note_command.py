@@ -8,9 +8,8 @@ class DeleteNoteCommand:
     signature = "<note_title>"
     description = "Delete an existing note by title"
 
-
     @input_error
-    def execute(self,args: list, notebook: Notebook):
+    def execute(self, args: list, notebook: Notebook):
         if len(args) != 1:
             raise InvalidCommandParamsException(self)
 

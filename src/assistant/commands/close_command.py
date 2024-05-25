@@ -1,5 +1,6 @@
 from src.decorators import input_error
 
+
 class CloseCommand:
     name = ["close", "exit"]
     signature = ""
@@ -8,4 +9,3 @@ class CloseCommand:
     @input_error
     def execute(self):
         return False
-

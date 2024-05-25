@@ -4,15 +4,13 @@ from src.models.notebook.note import Note
 from src.models.notebook.notebook import Notebook
 
 
-
-
 class AddNoteCommand:
-    name='add_note'
-    signature="<title> <content>"
-    description='Add a new note'
+    name = 'add_note'
+    signature = "<title> <content>"
+    description = 'Add a new note'
 
     @input_error
-    def execute(self,args: list, notebook: Notebook):
+    def execute(self, args: list, notebook: Notebook):
         if len(args) < 2:
             raise InvalidCommandParamsException(self)
 
