@@ -8,9 +8,8 @@ class GetAllBirthdaysCommand:
     signature = ""
     description = "Show all contacts with their birthdays"
 
-
     @input_error
-    def execute(self, args:list, contact_book: ContactBook):
+    def execute(self, args: list, contact_book: ContactBook):
         if args:
             raise InvalidCommandParamsException(self)
         if not contact_book.data:

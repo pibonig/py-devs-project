@@ -27,5 +27,3 @@ class SortByTagsCommand:
             return notes_content
         else:
             raise ValueError(f"No notes found with tag '{tag}'")
-
-

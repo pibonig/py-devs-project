@@ -4,13 +4,13 @@ from src.models.contact_book.contact_book import ContactBook
 from src.exceptions.invalid_command_params_exception import InvalidCommandParamsException
 
 
-
 class AddBirthdayCommand:
     name = "add_birthday"
     signature = "<name> <date>"
     description = "Add a birthday to a contact"
+
     @input_error
-    def execute(self,args: list, contact_book: ContactBook):
+    def execute(self, args: list, contact_book: ContactBook):
         if len(args) < 2:
             raise InvalidCommandParamsException(self)
         name, date = args

@@ -2,6 +2,7 @@ from src.decorators import input_error
 from src.models.notebook.notebook import Notebook
 from src.exceptions.invalid_command_params_exception import InvalidCommandParamsException
 
+
 class ChangeTagCommand:
     name = "change_tag"
     signature = "<note_title> <old_tag> <new_tag>"
