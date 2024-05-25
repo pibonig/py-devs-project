@@ -9,7 +9,8 @@ class GetBirthdaysCommand:
     description = "Get upcoming birthdays within a specified number of days"
 
     @input_error
-    def get_birthdays(self, args: list, contact_book: ContactBook):
+    def execute(self, args: list, contact_book: ContactBook):
+        print("get_birthdays")
         if len(args) < 1:
             raise InvalidCommandParamsException(self)
         days = int(args[0])
