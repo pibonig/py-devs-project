@@ -5,9 +5,9 @@ from prompt_toolkit import prompt
 from prompt_toolkit.completion import WordCompleter
 
 from lib.storage import Storage
-from src.assistant.commands.address.add_address_command import add_address_command
-from src.assistant.commands.address.change_address_command import change_address_command
-from src.assistant.commands.address.delete_address_command import delete_address_command
+from src.assistant.commands.address.add_address_command import AddAddressCommand
+from src.assistant.commands.address.change_address_command import ChangeAddressCommand
+from src.assistant.commands.address.delete_address_command import DeleteAddressCommand
 from src.assistant.commands.birthday import get_all_birthdays_command, get_birthday_command
 from src.assistant.commands.birthday.add_birthday_command import add_birthday_command
 from src.assistant.commands.birthday.change_birthday_command import change_birthday_command
@@ -42,9 +42,9 @@ commands = {
     CloseCommand.name[0]: CloseCommand,
     CloseCommand.name[1]: CloseCommand,
     HelloCommand.name: HelloCommand,
-    "add_address": add_address_command,
-    "change_address": change_address_command,
-    "delete_address": delete_address_command,
+    AddAddressCommand.name: AddAddressCommand,
+    ChangeAddressCommand.name: ChangeAddressCommand,
+    DeleteAddressCommand.name: DeleteAddressCommand,
     "add_birthday": add_birthday_command,
     "change_birthday": change_birthday_command,
     "delete_birthday": delete_birthday_command,
