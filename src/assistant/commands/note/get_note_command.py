@@ -8,14 +8,14 @@ class GetNoteCommand:
     signature = "<title>"
     description = "Retrieve a note by its title"
 
-@input_error
-def execute(self, args: list, notebook: Notebook):
-    if not args:
-        raise InvalidCommandParamsException(self)
-    title = ''.join(args)
-    result = notebook.get_note_by_title(title)
+    @input_error
+    def execute(self, args: list, notebook: Notebook):
+        if not args:
+            raise InvalidCommandParamsException(self)
+        title = ''.join(args)
+        result = notebook.get_note_by_title(title)
 
-    if result:
-        return str(result)
-    else:
-        raise ValueError(f"Note with title '{title}' not found")
+        if result:
+            return str(result)
+        else:
+            raise ValueError(f"Note with title '{title}' not found")
