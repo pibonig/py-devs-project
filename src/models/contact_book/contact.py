@@ -5,6 +5,7 @@ from src.models.contact_book.birthday import Birthday
 from src.models.contact_book.email import Email
 from src.models.contact_book.name import Name
 from src.models.contact_book.phone import Phone
+from src.response.table_response import TableResponse
 
 
 class Contact:
@@ -63,12 +64,16 @@ class Contact:
     def delete_birthday(self):
         self.birthday = None
 
-    def __str__(self):
-        email = self.email if self.email else 'not provided'
-        birthday = self.birthday if self.birthday else 'not provided'
-        address = self.address if self.address else 'not provided'
-        phones = '; '.join(p.value for p in self.phones) if self.phones else 'not provided'
-        return f"Contact name: {self.name.value}, email: {email}, address: {address}, birthday: {birthday}, phones: {phones}"
-
     def __repr__(self):
-        return f"Contact(name={self.name!r}, phones={self.phones!r}, email={self.email!r}, address={self.address!r}, birthday={self.birthday!r})"
+        headers = ["Name", "Address", "Email", "Phones", "Birthday"]
+        table = [
+            [
+                self.name,
+                self.address,
+                self.email,
+                ', '.join(str(phone) for phone in self.phones),
+                self.birthday
+            ]
+        ]
+
+        return repr(TableResponse(headers, table))
