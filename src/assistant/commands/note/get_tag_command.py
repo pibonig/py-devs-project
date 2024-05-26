@@ -1,6 +1,7 @@
 from src.decorators import input_error
 from src.exceptions.invalid_command_params_exception import InvalidCommandParamsException
 from src.models.notebook.notebook import Notebook
+from src.response.table_response import TableResponse
 
 
 class GetTagCommand:
@@ -20,7 +21,9 @@ class GetTagCommand:
                 matching_notes.append(note)
 
         if matching_notes:
-            notes_content = "\n".join(str(note) for note in matching_notes)
-            return notes_content
+            headers = ["Title", "Content", "Tags"]
+            body = [[note.title, note.value, ', '.join(note.tags)] for note in matching_notes]
+            table = TableResponse(headers=headers, body=body)
+            return repr(table)
         else:
             raise ValueError(f"No notes found with tag '{tag}'")
