@@ -1,4 +1,4 @@
-from colorama import Fore, Back
+from colorama import Fore
 
 
 class InvalidCommandParamsException(Exception):

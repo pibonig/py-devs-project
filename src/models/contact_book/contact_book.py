@@ -51,10 +51,10 @@ class ContactBook(UserDict[Contact]):
         for contact in self.data.values():
             table.append([
                 contact.name,
-                contact.address if contact.address else "",
-                contact.email if contact.email else "",
-                contact.phones if contact.phones else "",
-                contact.birthday if contact.birthday else ""
+                contact.address,
+                contact.email,
+                ', '.join(str(phone) for phone in contact.phones),
+                contact.birthday
             ])
 
         return repr(TableResponse(headers, table))

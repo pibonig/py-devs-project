@@ -15,7 +15,7 @@ class AddBirthdayCommand:
     def execute(self, args: list, contact_book: ContactBook):
         if len(args) < 2:
             raise InvalidCommandParamsException(self)
-        
+
         name, date = args
         contact = contact_book.get_contact(name)
 

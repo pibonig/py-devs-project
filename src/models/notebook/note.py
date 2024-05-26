@@ -2,11 +2,13 @@ from src.models.field import Field
 from src.response.table_response import TableResponse
 
 
+
 class Note(Field):
-    def __init__(self, title: str, content: str, tags: str = ""):
+    def __init__(self, title: str, content: str, tags: list[str] = None):
         super().__init__(content)
         self.title = title
         self.tags = []
+      
 
     def change(self, new_content: str):
         self.value = new_content
@@ -22,6 +24,7 @@ class Note(Field):
             self.tags.remove(tag)
             return True
         return False
+  
 
     def __repr__(self):
         headers = ["Title", "Content", "Tags"]
