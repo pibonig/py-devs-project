@@ -20,7 +20,7 @@ class DeletePhoneCommand:
         contact = contact_book.get_contact(name)
 
         if contact is None:
-            raise KeyError
+            raise KeyError(f"Contact '{name}' not found")
         else:
             phone = Phone(phone)
             contact.delete_phone(phone)

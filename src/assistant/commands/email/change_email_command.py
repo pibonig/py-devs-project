@@ -20,7 +20,7 @@ class ChangeEmailCommand:
         record = contact_book.get_contact(name)
 
         if record is None:
-            raise KeyError
+            raise KeyError(f"Contact '{name}' not found")
         else:
             email = Email(email)
             record.set_email(email)

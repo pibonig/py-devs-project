@@ -20,7 +20,7 @@ class AddEmailCommand:
         contact = contact_book.get_contact(name)
 
         if contact is None:
-            raise KeyError
+            raise KeyError(f"Contact '{name}' not found")
         else:
             email = Email(email)
             contact.set_email(email)

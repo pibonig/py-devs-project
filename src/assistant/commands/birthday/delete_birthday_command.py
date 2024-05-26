@@ -14,10 +14,12 @@ class DeleteBirthdayCommand:
     def execute(self, args: list, contact_book: ContactBook):
         if len(args) < 1:
             raise InvalidCommandParamsException(self)
-        name = args
+        
+        name, *_ = args
         contact = contact_book.get_contact(name)
+
         if contact is None:
-            raise KeyError
+            raise KeyError(f"Contact '{name}' not found")
         else:
             contact.delete_birthday()
             return Fore.GREEN + f"Birthday has been deleted for the contact '{name}'"

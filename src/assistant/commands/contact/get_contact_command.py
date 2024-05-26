@@ -19,4 +19,4 @@ class GetContactCommand:
         if contact:
             return str(contact)
         else:
-            raise KeyError
+            raise KeyError(f"Contact '{name}' not found")

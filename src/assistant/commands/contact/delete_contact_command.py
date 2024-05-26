@@ -22,4 +22,4 @@ class DeleteContactCommand:
             contact_book.delete_contact(name)
             return Fore.GREEN + "Contact has been deleted"
         else:
-            raise KeyError
+            raise KeyError(f"Contact '{name}' not found")
