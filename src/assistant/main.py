@@ -13,7 +13,7 @@ from src.assistant.commands.birthday.add_birthday_command import AddBirthdayComm
 from src.assistant.commands.birthday.change_birthday_command import ChangeBirthdayCommand
 from src.assistant.commands.birthday.delete_birthday_command import DeleteBirthdayCommand
 from src.assistant.commands.birthday.get_all_birthdays_command import GetAllBirthdaysCommand
-from src.assistant.commands.birthday.get_birthday_command import GetBirthdaysCommand
+from src.assistant.commands.birthday.get_birthdays_command import GetBirthdaysCommand
 from src.assistant.commands.close_command import CloseCommand
 from src.assistant.commands.contact.add_contact_command import AddContactCommand
 from src.assistant.commands.contact.delete_contact_command import DeleteContactCommand

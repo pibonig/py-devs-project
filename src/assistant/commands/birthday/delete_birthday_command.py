@@ -14,7 +14,7 @@ class DeleteBirthdayCommand:
     def execute(self, args: list, contact_book: ContactBook):
         if len(args) < 1:
             raise InvalidCommandParamsException(self)
-        
+
         name, *_ = args
         contact = contact_book.get_contact(name)
 
