@@ -17,8 +17,8 @@ from src.assistant.commands.email.delete_email_command import DeleteEmailCommand
 from src.assistant.commands.hello_command import HelloCommand
 from src.assistant.commands.note.add_note_command import AddNoteCommand
 from src.assistant.commands.note.add_tag_command import AddTagCommand
-from src.assistant.commands.note.change_tag_command import ChangeTagCommand
 from src.assistant.commands.note.change_note_command import ChangeNoteCommand
+from src.assistant.commands.note.change_tag_command import ChangeTagCommand
 from src.assistant.commands.note.delete_note_command import DeleteNoteCommand
 from src.assistant.commands.note.delete_tag_command import DeleteTagCommand
 from src.assistant.commands.note.get_all_notes_command import GetAllNotesCommand

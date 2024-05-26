@@ -20,7 +20,7 @@ class AddNoteCommand:
         note_content = ' '.join(args[1:])
 
         for note in notebook.notes:
-            if note.title==note_title:
+            if note.title == note_title:
                 raise ValueError(f"Note with title '{note_title}' already exists")
 
         note = Note(title=note_title, content=note_content)
