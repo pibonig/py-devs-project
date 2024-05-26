@@ -1,7 +1,9 @@
+from colorama import Fore
+
 from src.decorators import input_error
 from src.exceptions.invalid_command_params_exception import InvalidCommandParamsException
 from src.models.contact_book.contact_book import ContactBook
-from colorama import Fore
+
 
 class GetBirthdaysCommand:
     name = "get_birthdays"
@@ -12,7 +14,7 @@ class GetBirthdaysCommand:
     def execute(self, args: list, contact_book: ContactBook):
         if len(args) != 1:
             raise InvalidCommandParamsException(self)
-        
+
         if not contact_book.data:
             return "Address book is empty."
         else:
@@ -21,6 +23,3 @@ class GetBirthdaysCommand:
             if result is None:
                 return Fore.RED + f"No contacts have birthdays within the next {days} days."
             return result
-            
-
-            
