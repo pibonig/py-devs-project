@@ -18,7 +18,7 @@ class DeleteEmailCommand:
         name, *_ = args
         contact = contact_book.get_contact(name)
         if contact is None:
-            raise KeyError
+            raise KeyError(f"Contact '{name}' not found")
         else:
             contact.delete_email()
             return Fore.GREEN + "Email has been deleted in the contact"

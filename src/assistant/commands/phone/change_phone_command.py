@@ -20,7 +20,7 @@ class ChangePhoneCommand:
         contact = contact_book.get_contact(name)
 
         if contact is None:
-            raise KeyError
+            raise KeyError(f"Contact '{name}' not found")
         else:
             old_phone = Phone(old_phone)
             new_phone = Phone(new_phone)
