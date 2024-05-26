@@ -20,7 +20,7 @@ class ChangeAddressCommand:
         contact = contact_book.get_contact(name)
 
         if contact is None:
-            raise KeyError
+            raise KeyError(f"Contact '{name}' not found")
         else:
             address = Address(address_value)
             contact.set_address(address)

@@ -22,4 +22,4 @@ class DeleteAddressCommand:
             contact.delete_address()
             return Fore.GREEN + "Address has been deleted"
         else:
-            raise KeyError
+            raise KeyError(f"Contact '{name}' not found")
