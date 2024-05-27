@@ -16,7 +16,7 @@ class GetBirthdaysCommand:
             raise InvalidCommandParamsException(self)
 
         if not contact_book.data:
-            return "Address book is empty."
+            return Fore.RED + "Address book is empty."
         else:
             days = int(args[0])
             result = contact_book.get_upcoming_birthdays(days)
