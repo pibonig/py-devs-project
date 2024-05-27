@@ -1,7 +1,7 @@
 import inspect
 import sys
 
-from colorama import Fore, Style
+from colorama import Fore, Style, init
 from prompt_toolkit import prompt
 from prompt_toolkit.completion import WordCompleter
 
@@ -75,6 +75,8 @@ commands = {
     SortByTagsCommand.name: SortByTagsCommand,
     HelpCommand.name: HelpCommand
 }
+
+init()
 
 commands_list = sorted(list(commands.keys()))
 command_completer = WordCompleter(commands_list, ignore_case=True)
